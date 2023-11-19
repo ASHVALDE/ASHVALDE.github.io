@@ -9,6 +9,7 @@ function initialClick(e) {
         moving = e.target;
         document.onmouseup = soltarClick
         document.addEventListener("mousemove", move, false);
+        document.addEventListener("touchmove",move,false)
     
     }else if (e.target.classList.contains("closewindowsbutton")){
          e.target.parentElement.parentElement.parentElement.remove()
@@ -33,6 +34,8 @@ function move(e) {
 function soltarClick(e) {
     console.log("e")
     document.removeEventListener("mousemove", move, false);
+    document.removeEventListener("touchmove", move, false);
+
     document.onmouseup =null
     moving = false
 
