@@ -15,3 +15,21 @@ html body{
 #startButton{
     height: 30px;
 }
+#tiempo{
+    position: absolute;
+    right: 0;
+    height: 90%;
+    top: 5%;
+    width: 100px;
+    background-color: #BFC1C0;
+    border: solid 1px black;
+}
+.centeredImg{
+    text-align: center;
+    width: 40%;
+}
+.pres1{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
