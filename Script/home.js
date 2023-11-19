@@ -16,3 +16,7 @@ document.onclick = (e)=>{
 
     }
 }
+
+function openGit(){
+    window.open("https://github.com/ASHVALDE", '_blank');
+}
