@@ -12,10 +12,16 @@ function initialClick(e) {
     
     }else if (e.target.classList.contains("closewindowsbutton")){
          e.target.parentElement.parentElement.parentElement.remove()
+    }else if (e.target.classList.contains("escritorio")){
+      const currentActive = document.getElementById("iconActive")
+      if(currentActive){
+          currentActive.id=""
+      }
     }
+ }
 
 
-}
+
 
 function move(e) {
     var newX = e.clientX - 10;
@@ -50,5 +56,3 @@ async function createWindow(title,link,x,y){
     elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:"+y+"px;left:"+x+"px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>"+title+"</div><div class='title-bar-controls'><button aria-label='Minimize'></button><button aria-label='Maximize'></button><button class='closewindowsbutton' aria-label='Close'></button></div></div><div class='window-body'><div>"+txt+"</div> </div></div></div>"
     document.body.append(elem.firstChild)
 }
-createWindow("SantiagoValderrama.exe","hola.html",15,15)
-createWindow("Pagina_en_construccion.exe","proyectos.html",300,100)

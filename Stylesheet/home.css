@@ -1,10 +1,12 @@
-html body{
+html body {
     padding: 0;
     margin: 0;
     background-color: #008080;
     overflow: hidden;
+
 }
-.barraTareas{
+
+.barraTareas {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -12,24 +14,62 @@ html body{
     height: 30px;
     background-color: #C0C0C0;
 }
-#startButton{
+
+#startButton {
     height: 30px;
 }
-#tiempo{
+
+#tiempo {
     position: absolute;
     right: 0;
-    height: 90%;
-    top: 5%;
+    height: 100%;
+    top: 0;
     width: 100px;
     background-color: #BFC1C0;
     border: solid 1px black;
 }
-.centeredImg{
+
+.centeredImg {
     text-align: center;
     width: 40%;
 }
-.pres1{
+
+.pres1 {
     position: absolute;
     left: 10%;
     top: 10%;
+}
+
+
+.escritorio {
+    position: absolute;
+    top: 0;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    margin: 15px 5px;
+    text-align: center;
+    background: none;
+    border: none;
+}
+.icon img{
+    height: 70%;
+    margin: 0;
+}
+.Iconnametag{
+    width: 100%;
+    border: dotted gray 1px;
+}
+.Iconnametag p{
+margin: 0;
+}
+#iconActive{
+    background-color: #003333;
+    color: white;
 }
