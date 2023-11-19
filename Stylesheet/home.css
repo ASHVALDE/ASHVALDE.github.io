@@ -52,8 +52,7 @@ html body {
 
 .icon {
     width: 60px;
-    height: 60px;
-    margin: 15px 5px;
+    margin: 10px 5px;
     text-align: center;
     background: none;
     border: none;
@@ -65,6 +64,8 @@ html body {
 .Iconnametag{
     width: 100%;
     border: dotted gray 1px;
+    word-wrap: break-word;
+    
 }
 .Iconnametag p{
 margin: 0;

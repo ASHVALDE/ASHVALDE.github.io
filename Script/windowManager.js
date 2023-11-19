@@ -1,61 +1,59 @@
 
 var moving = null;
-var offset = [0,0]
+var offset = [0, 0]
 function initialClick(e) {
+  console.log("eee")
+  if (e.target.classList.contains("title-bar")) {
+    offset[0] = e.offsetX
+    offset[1] = e.offsetY
+    moving = e.target;
+    document.onpointerup = soltarClick
+    document.addEventListener("pointermove", move, false);
 
-    if (e.target.classList.contains("title-bar")) {
-        offset[0] = e.offsetX
-        offset[1] = e.offsetY
-        moving = e.target;
-        document.onmouseup = soltarClick
-        document.addEventListener("mousemove", move, false);
-        document.addEventListener("touchmove",move,false)
-    
-    }else if (e.target.classList.contains("closewindowsbutton")){
-         e.target.parentElement.parentElement.parentElement.remove()
-    }else if (e.target.classList.contains("escritorio")){
-      const currentActive = document.getElementById("iconActive")
-      if(currentActive){
-          currentActive.id=""
-      }
+  } else if (e.target.classList.contains("closewindowsbutton")) {
+    e.target.parentElement.parentElement.parentElement.remove()
+  } else if (e.target.classList.contains("escritorio")) {
+    const currentActive = document.getElementById("iconActive")
+    if (currentActive) {
+      currentActive.id = ""
     }
- }
+  }
+}
 
 
 
 
 function move(e) {
-    var newX = e.clientX - 10;
-    var newY = e.clientY - 10;
-    moving.parentElement.style.left = newX - offset[0]  + "px";
-    moving.parentElement.style.top = newY - offset[1] + "px";
+  var newX = e.clientX - 10;
+  var newY = e.clientY - 10;
+  moving.parentElement.style.left = newX - offset[0] + "px";
+  moving.parentElement.style.top = newY - offset[1] + "px";
 }
 
 function soltarClick(e) {
-    console.log("e")
-    document.removeEventListener("mousemove", move, false);
-    document.removeEventListener("touchmove", move, false);
+  document.removeEventListener("pointermove", move, false);
 
-    document.onmouseup =null
-    moving = false
+  document.onpointerup = null
+  moving = false
 
 }
-document.onmousedown = initialClick
+document.onpointerdown = initialClick
 
 async function loadPage(pagina) {
-    const x = await fetch(pagina, {
-      // 👇️ set Accept header to `text/html`
-      headers: {
-        Accept: 'text/html',
-      },
-    })
-    return x.text()
-  }
-
-
-async function createWindow(title,link,x,y){
-    const txt = await loadPage(link)
-    let elem = document.createElement("window")
-    elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:"+y+"px;left:"+x+"px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>"+title+"</div><div class='title-bar-controls'><button aria-label='Minimize'></button><button aria-label='Maximize'></button><button class='closewindowsbutton' aria-label='Close'></button></div></div><div class='window-body'><div>"+txt+"</div> </div></div></div>"
-    document.body.append(elem.firstChild)
+  const x = await fetch(pagina, {
+    // 👇️ set Accept header to `text/html`
+    headers: {
+      Accept: 'text/html',
+    },
+  })
+  return x.text()
 }
+
+
+async function createWindow(title, link, x, y) {
+  const txt = await loadPage(link)
+  let elem = document.createElement("window")
+  elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:" + y + "px;left:" + x + "px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>" + title + "</div><div class='title-bar-controls'><button aria-label='Minimize'></button><button aria-label='Maximize'></button><button class='closewindowsbutton' aria-label='Close'></button></div></div><div class='window-body'><div>" + txt + "</div> </div></div></div>"
+  document.body.append(elem.firstChild)
+}
+
