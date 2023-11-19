@@ -33,3 +33,21 @@ function soltarClick(e) {
 }
 document.onmousedown = initialClick
 
+async function loadPage(pagina) {
+    const x = await fetch(pagina, {
+      // 👇️ set Accept header to `text/html`
+      headers: {
+        Accept: 'text/html',
+      },
+    })
+    return x.text()
+  }
+
+
+async function createWindow(title,link){
+     const txt = await loadPage("hola.html")
+    let elem = document.createElement("window")
+    elem.innerHTML = "<div class='window pres1' style='width:min-content;text-align: center;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>"+title+"</div><div class='title-bar-controls'><button aria-label='Minimize'></button><button aria-label='Maximize'></button><button class='closewindowsbutton' aria-label='Close'></button></div></div><div class='window-body'><div>"+txt+"</div> </div></div></div>"
+    document.body.append(elem.firstChild)
+}
+createWindow("SantiagoValderrama.exe","hola.html")
