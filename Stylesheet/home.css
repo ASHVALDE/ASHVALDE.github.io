@@ -40,7 +40,9 @@ html body {
     top: 10%;
 }
 
-
+span{
+    font-family:"Pixelated MS Sans Serif";
+}
 .escritorio {
     position: absolute;
     top: 0;
@@ -51,7 +53,7 @@ html body {
 }
 
 .icon {
-    width: 60px;
+    width: 65px;
     margin: 10px 5px;
     text-align: center;
     background: none;
@@ -74,3 +76,48 @@ margin: 0;
     background-color: #003333;
     color: white;
 }
+.Menu-Inicio{
+    position: absolute;
+    bottom: 30px;
+    width: 200px;
+    height: 300px;
+    background-color: #C0C0C0;
+    visibility: hidden;
+    border-bottom: black 1px solid;
+    
+}
+.Menu-Inicio-SideBar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 20px;
+}
+.Menu-Inicio-Activo{
+    visibility:visible !important;
+}
+.flex-container-Menu {
+    position: relative;
+    left: 20px;
+    width: 180px;
+    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: normal;
+    align-content: normal;
+  }
+  .flex-container-Menu-Item {
+    user-select: none;
+    height: 25px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .flex-container-Menu-Item:hover {
+    background-color: #000080;
+    color: white;
+  }

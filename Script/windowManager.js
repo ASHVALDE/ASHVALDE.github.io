@@ -2,22 +2,33 @@
 var moving = null;
 var offset = [0, 0]
 function initialClick(e) {
-  console.log("eee")
   if (e.target.classList.contains("title-bar")) {
     offset[0] = e.offsetX
     offset[1] = e.offsetY
     moving = e.target;
     document.onpointerup = soltarClick
     document.addEventListener("pointermove", move, false);
+    document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
 
   } else if (e.target.classList.contains("closewindowsbutton")) {
     e.target.parentElement.parentElement.parentElement.remove()
-  } else if (e.target.classList.contains("escritorio")) {
+    document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
+
+  }else if(e.target.classList.contains("flex-container-Menu-Item")){
+    document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
+
+  }
+  else if (e.target.classList.contains("escritorio")) {
     const currentActive = document.getElementById("iconActive")
+    document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
     if (currentActive) {
       currentActive.id = ""
     }
+  }else if(e.target.id=="startButton"){
+    document.getElementById("Menu").classList.toggle("Menu-Inicio-Activo")
+
   }
+  
 }
 
 
