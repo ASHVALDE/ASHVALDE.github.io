@@ -82,7 +82,7 @@ margin: 0;
     width: 200px;
     height: 300px;
     background-color: #C0C0C0;
-    visibility: none;
+    display: none;
     border-bottom: black 1px solid;
     
 }
@@ -94,7 +94,7 @@ margin: 0;
     width: 20px;
 }
 .Menu-Inicio-Activo{
-    visibility:visible !important;
+    display:block !important;
 }
 .flex-container-Menu {
     position: relative;

@@ -26,7 +26,7 @@ function initialClick(e) {
     }
   }else if(e.target.id=="startButton"){
     document.getElementById("Menu").classList.toggle("Menu-Inicio-Activo")
-
+    console.log()
   }
   
 }
