@@ -121,3 +121,16 @@ margin: 0;
     background-color: #000080;
     color: white;
   }
+
+  #taskbarIcons{
+    position: absolute;
+    top: 0;
+    left: 72px;
+    right:  100px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+  }

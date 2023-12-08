@@ -10,10 +10,6 @@ function initialClick(e) {
     document.addEventListener("pointermove", move, false);
     document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
 
-  } else if (e.target.classList.contains("closewindowsbutton")) {
-    e.target.parentElement.parentElement.parentElement.remove()
-    document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
-
   }else if(e.target.classList.contains("flex-container-Menu-Item")){
     document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
 
@@ -60,11 +56,62 @@ async function loadPage(pagina) {
   return x.text()
 }
 
+let paginasAbiertas = {
+
+}
 
 async function createWindow(title, link, x, y) {
-  const txt = await loadPage(link)
-  let elem = document.createElement("window")
-  elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:" + y + "px;left:" + x + "px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>" + title + "</div><div class='title-bar-controls'><button aria-label='Minimize'></button><button aria-label='Maximize'></button><button class='closewindowsbutton' aria-label='Close'></button></div></div><div class='window-body'><div>" + txt + "</div> </div></div></div>"
-  document.body.append(elem.firstChild)
+  if(paginasAbiertas[title]){
+    bringAppFront(title)
+  }else{
+    const txt = await loadPage(link)
+    let elem = document.createElement("window")
+    elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:" + y + "px;left:" + x + "px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>" + title + "</div><div class='title-bar-controls'><button onpointerdown=hideThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Minimize'></button><button class='closewindowsbutton' onpointerdown=closeThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Close'></button></div></div><div class='window-body'><div>" + txt + "</div> </div></div></div>"
+    elem.firstChild.onpointerdown = (e)=>{bringAppFront(title,e)}
+    paginasAbiertas[title] = elem.firstChild
+    document.body.append(elem.firstChild)
+    createTaskBarButton(title)
+  }
+
+}
+
+function closeThisWindow(e){
+  const title = e.replace(/_/g, " ")
+  paginasAbiertas[title].remove()
+  document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
+  document.getElementById(title+"_Taskbar").remove()
+  delete paginasAbiertas[title]
+}
+
+function hideThisWindow(e){
+  const title = e.replace(/_/g, " ")
+
+  paginasAbiertas[title].style.visibility = 'hidden';
+  console.log(paginasAbiertas[title].style.visibility)
+  
+
+}
+
+function createTaskBarButton(title){
+  let newButton = document.createElement("window")
+  newButton.innerHTML = "<button style='height:100%;margin-left:5px;' id='"+title+"_Taskbar'><img style='margin-right: 5px; height:50%;' src='apps/"+title+"/icon.png'>  "+title+"</button>"
+  newButton.firstChild.onpointerdown = ()=>{bringAppFront(title)}
+
+  document.getElementById("taskbarIcons").append(newButton.firstChild)
+
+
+}
+
+
+function bringAppFront(title,e){
+ 
+
+  if (e && e.target.tagName=="BUTTON"){ return false}
+  Object.keys(paginasAbiertas).forEach(pagina => {
+    paginasAbiertas[pagina].style.zIndex= 0
+  });
+  paginasAbiertas[title].style.zIndex= 99
+  paginasAbiertas[title].style.visibility = "visible";
+
 }
 
