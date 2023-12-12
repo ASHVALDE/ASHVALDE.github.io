@@ -94,7 +94,10 @@ function hideThisWindow(e){
 
 function createTaskBarButton(title){
   let newButton = document.createElement("window")
+  
   newButton.innerHTML = "<button style='height:100%;margin-left:5px;' id='"+title+"_Taskbar'><img style='margin-right: 5px; height:50%;' src='apps/"+title+"/icon.png'>  "+title+"</button>"
+
+
   newButton.firstChild.onpointerdown = ()=>{bringAppFront(title)}
 
   document.getElementById("taskbarIcons").append(newButton.firstChild)
