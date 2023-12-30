@@ -50,6 +50,9 @@ span{
     left: 0;
     width: 100%;
     z-index: -1;
+    background-image: url("../public/images/background.jpg");
+    background-size: cover;
+
 }
 
 .icon {
