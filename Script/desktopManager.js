@@ -1,4 +1,4 @@
-var programs = ["Proyectos","Sobre Mi","Sierra"]
+var programs = ["Proyectos","Sobre Mi","Configuraciones"]
 var icons  = document.getElementsByClassName("icon")
 var currentActive = null
 const startIcon = (e)=>{
@@ -27,4 +27,26 @@ function createIcons(){
     
 }
 
+
+function setWallpaper(id){
+    let x = localStorage.wallpaper
+    if(!x || id){
+        localStorage.wallpaper = id || 0
+    }
+    switch (localStorage.wallpaper) {
+        case "3":
+            document.getElementsByClassName("escritorio")[0].style.backgroundImage = 'url("../public/images/background2.jpg")'
+            break;
+        case "2":
+            document.getElementsByClassName("escritorio")[0].style.backgroundImage = 'url("../public/images/background.jpg")'
+            break;
+        case "1":
+            document.getElementsByClassName("escritorio")[0].style.backgroundImage = 'none'
+            break;
+    
+        default:
+            break;
+    }
+}
+setWallpaper()
 createIcons()
