@@ -31,7 +31,7 @@ function createIcons(){
 function setWallpaper(id){
     let x = localStorage.wallpaper
     if(!x || id){
-        localStorage.wallpaper = id || 0
+        localStorage.wallpaper = id || 3
     }
     switch (localStorage.wallpaper) {
         case "3":
