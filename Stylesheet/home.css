@@ -56,6 +56,16 @@ span{
      min-height: 100vh;
 
 }
+@media only screen and (orientation: portrait) {
+
+    .escritorio {
+
+        background-repeat: no-repeat;
+         background-size:cover;
+         min-height: none;
+    
+    }
+}
 
 .icon {
     width: 65px;
