@@ -1,17 +1,21 @@
 <style>
-    .documento {
+    .documentoConfig {
 
     }
 
 </style>
 
-<div class="documento">
-    <p>Fondo</p>
-    <button onclick="setWallpaper(1)">Sin fondo</button>
-    <br>
-    <button onclick="setWallpaper(2)" style="margin-top: 15px;">Windows XP</button>
-    <br>
-    <button onclick="setWallpaper(3)" style="margin-top: 15px;">Windows 98</button>
+<div class="documentoConfig" >
+    <p>Fondo de pantalla</p>
+    <select onchange="setWallpaper(this)">
+        <option value="1" >Sin fondo</option>
+        <option value="2">Windows XP</option>
+        <option value="3">Windows 98</option>
+        <option value="4">Obrero Micrero</option>
+        <option value="5">Icarly</option>
+      </select>
+
+
 </div>
 
 

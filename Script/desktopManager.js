@@ -28,12 +28,22 @@ function createIcons(){
 }
 
 
-function setWallpaper(id){
+function setWallpaper(e){
+    let id = 0
+    if(e){
+        id= e.value
+    }
     let x = localStorage.wallpaper
     if(!x || id){
-        localStorage.wallpaper = id || 3
+        localStorage.wallpaper = id || 0
     }
     switch (localStorage.wallpaper) {
+        case "5":
+            document.getElementsByClassName("escritorio")[0].style.backgroundImage = 'url("../public/images/background5.jpg")'
+            break;
+        case "4":
+            document.getElementsByClassName("escritorio")[0].style.backgroundImage = 'url("../public/images/background4.jpg")'
+            break;
         case "3":
             document.getElementsByClassName("escritorio")[0].style.backgroundImage = 'url("../public/images/background2.jpg")'
             break;
