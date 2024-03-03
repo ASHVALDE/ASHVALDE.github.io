@@ -1,4 +1,4 @@
-arcade.minesweeper.grid = function(minesweeper, grid_area, width, height, face) {
+arcade.minesweeper.grid = function(minesweeper, grid_area, width, height, face,flag) {
 	this.tiles = [];
 	this.tile_tds = []; // For the event listener only to find the proper index
 	this.width = width;
@@ -6,6 +6,7 @@ arcade.minesweeper.grid = function(minesweeper, grid_area, width, height, face) 
 	this.grid_area = grid_area;
   this.highlighted_tiles = [];
   this.face = face;
+  this.flag = flag
   this.minesweeper = minesweeper;
 }
 
@@ -20,7 +21,7 @@ arcade.minesweeper.grid.prototype.seed;
 arcade.minesweeper.grid.prototype.right_mouse_down = false;
 arcade.minesweeper.grid.prototype.highlighted_tiles = [];
 arcade.minesweeper.grid.prototype.face;
-
+arcade.minesweeper.grid.prototype.flag;
 arcade.minesweeper.grid.prototype.generate = function(number_mines, seed) {
 
   var self = this;

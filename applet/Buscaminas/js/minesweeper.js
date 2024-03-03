@@ -87,15 +87,17 @@ arcade.minesweeper.prototype.build = function(width, height) {
   var header_tr = $.createElement("tr");
   this.header_td_mine_count = $.createElement("td").style({"width": 53, "text-align": "center"});
   this.header_td_face = $.createElement("td").style({"text-align": "center"});
+  this.header_td_flag = $.createElement("td").style({"text-align": "center"});
   this.header_td_timer = $.createElement("td").style({"width": 53, "text-align": "center"});
   header_tr.appendChild(this.header_td_mine_count);
   header_tr.appendChild(this.header_td_face);
+  header_tr.appendChild(this.header_td_flag);
   header_tr.appendChild(this.header_td_timer);
   header_tbody.appendChild(header_tr);
   header_table.appendChild(header_tbody);
   td_header_center.appendChild(header_table);
 }
-
+var flag
 arcade.minesweeper.prototype.new_game = function(width, height, number_mines) {
   var self = this;
 
@@ -108,15 +110,17 @@ arcade.minesweeper.prototype.new_game = function(width, height, number_mines) {
   this.build(width, height);
 
   var face = new arcade.minesweeper.face(this, this.header_td_face);
-
+  flag = new arcade.minesweeper.flag(this, this.header_td_flag);
   this.play_table.removeEventListener("mousedown,mouseup").style({"cursor": "default", "border": "1px solid #444"});
   this.play_table
     .addEventListener("mousedown", function(e) {
       if(e.target === face.get_element()) return false;
+
       if(e.which === 1) face.set_state("scared");
     })
     .addEventListener("mouseup", function(e) {
       face.set_state("smile");
+      
     });
 
   this.mine_counter = new arcade.minesweeper.ssd(this.header_td_mine_count, number_mines)
@@ -155,7 +159,7 @@ $.ready(function() {
       if(!tile) return false;
 
       // On right click, mark the tile if the right mouse is the only button down
-      if(minesweeper.mouse.right && !minesweeper.mouse.left) {
+      if((minesweeper.mouse.right && !minesweeper.mouse.left) || flag.state=="redFlagMode") {
         var state = tile.mark();
         if(state === "flag") minesweeper.mine_counter.decrement();
         else if(state === "question") minesweeper.mine_counter.increment();

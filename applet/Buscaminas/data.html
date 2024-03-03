@@ -7,6 +7,7 @@
 <script type="text/javascript" src="js/minesweeper.js"></script>
 <script type="text/javascript" src="js/tile.js"></script>
 <script type="text/javascript" src="js/face.js"></script>
+<script type="text/javascript" src="js/flag.js"></script>
 <script type="text/javascript" src="js/grid.js"></script>
 <script type="text/javascript" src="js/ssd.js"></script>
 <link rel="stylesheet" href="css/minesweeper.css">
@@ -15,3 +16,10 @@
       <div id="play_area"></div>
 </body>
 </html>
+
+<script>
+      document.onpointerup = (e) => {
+            window.parent.postMessage(["mouseup"], "*");
+      }
+
+</script>

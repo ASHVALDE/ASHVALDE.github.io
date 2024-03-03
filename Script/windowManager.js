@@ -118,3 +118,9 @@ function bringAppFront(title,e){
 
 }
 
+window.addEventListener('message', function(event) {
+ if(event.data[0]=="mouseup"){
+  return soltarClick()
+ }
+
+});
