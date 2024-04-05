@@ -3,9 +3,13 @@ html body {
     margin: 0;
     background-color: #008080;
     overflow: hidden;
+    font-family:"Pixelated MS Sans Serif";
 
 }
+h4{
+    font-family:"Pixelated MS Sans Serif";
 
+}
 .barraTareas {
     position: absolute;
     bottom: 0;

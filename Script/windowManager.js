@@ -74,6 +74,22 @@ async function createWindow(title, link, x, y) {
   }
 
 }
+async function createWindow2(title, link, x, y) {
+  if(paginasAbiertas[title]){
+    bringAppFront(title)
+  }else{
+
+    let elem = document.createElement("window")
+    elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:" + y + "px;left:" + x + "px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>" + title + "</div><div class='title-bar-controls'><button onpointerdown=hideThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Minimize'></button><button class='closewindowsbutton' onpointerdown=closeThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Close'></button></div></div><div class='window-body'><div>" +
+     "<iframe width='800' height='480' src='https://www.google.com/webhp?hl=es&sa=X&ved=0ahUKEwjT44qnyquFAxVvRTABHYakD5sQPAgJ'></iframe>" +
+     "</div> </div></div></div>"
+    elem.firstChild.onpointerdown = (e)=>{bringAppFront(title,e)}
+    paginasAbiertas[title] = elem.firstChild
+    document.body.append(elem.firstChild)
+    createTaskBarButton(title)
+  }
+
+}
 
 function closeThisWindow(e){
   const title = e.replace(/_/g, " ")

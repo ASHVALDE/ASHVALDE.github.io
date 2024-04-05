@@ -1,4 +1,4 @@
-var programs = ["Sobre Mi","Configuraciones","Buscaminas"]
+var programs = ["Sobre Mi","Configuraciones","Buscaminas","Proyectos"]
 var icons  = document.getElementsByClassName("icon")
 var currentActive = null
 const startIcon = (e)=>{
@@ -15,6 +15,21 @@ const startIcon = (e)=>{
     }
     e.id = "iconActive"
 }
+const startIconWithURL = (e,url)=>{
+    currentActive = document.getElementById("iconActive")
+
+    if(e.id=="iconActive"){
+        const appname = e.getElementsByTagName("p")[0].innerText
+        window.open(url,'_blank');
+        currentActive.id=""
+
+    }
+    if(currentActive){
+        currentActive.id=""
+    }
+    e.id = "iconActive"
+}
+
 function createIcons(){
     programs.forEach((program)=>{
         let elem = document.createElement("window")
