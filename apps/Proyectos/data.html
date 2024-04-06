@@ -136,6 +136,16 @@
         align-self: auto;
         order: 0;
     }
+    @media (max-width: 768px) {
+        .sidebarparent {
+            visibility: hidden;
+            display: none !important;
+        }
+        .documentoProyectos{
+            width: 80vw !important;
+        }
+
+    }
 </style>
 <div class="statusBar">
     <div class="flex-containerProy2">
@@ -160,7 +170,7 @@
 <div class="documentoProyectos" >
     <div class="contentPort" style="text-align: left;height: 100%;">
         <div class="flex-containerProy2" style="width: 100%;">
-            <div class="flex-itemsProy2" style="width: 35%">
+            <div class="flex-itemsProy2 sidebarparent" style="width: 35%">
                 <div class="sidebar">
                     <div class="sidebarItem">
                         <div class="sidebarTitle">
@@ -214,7 +224,7 @@
                             Dispositivos y unidades:</p>
                     </div>
 
-                    <div class="flex-container" style="width: 100%;text-align: left; margin: 20px 15px;">
+                    <div class="flex-containerProy1" style="width: 100%;text-align: left; margin: 20px 15px;">
                         <div class="flex-itemsProy2">
                             <div class='icon'><img src='./public/images/hard_disk_drive-2.png'>
                                 <div class='Iconnametag'>
@@ -229,9 +239,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-itemsProy2">
-
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="nonSidebar">
