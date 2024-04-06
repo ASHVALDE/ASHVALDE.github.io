@@ -69,8 +69,10 @@ async function createWindow(title, link, x, y) {
     elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:" + y + "px;left:" + x + "px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>" + title + "</div><div class='title-bar-controls'><button onpointerdown=hideThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Minimize'></button><button class='closewindowsbutton' onpointerdown=closeThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Close'></button></div></div><div class='window-body'><div>" + txt + "</div> </div></div></div>"
     elem.firstChild.onpointerdown = (e)=>{bringAppFront(title,e)}
     paginasAbiertas[title] = elem.firstChild
-    document.body.append(elem.firstChild)
+    let elemento = document.body.append(elem.firstChild)
+    elem.style.zIndex = -3
     createTaskBarButton(title)
+    bringAppFront(title)
   }
 
 }
@@ -87,6 +89,7 @@ async function createWindow2(title, link, x, y) {
     paginasAbiertas[title] = elem.firstChild
     document.body.append(elem.firstChild)
     createTaskBarButton(title)
+    bringAppFront(title)
   }
 
 }
@@ -124,7 +127,7 @@ function createTaskBarButton(title){
 
 function bringAppFront(title,e){
  
-
+  console.log(title)
   if (e && e.target.tagName=="BUTTON"){ return false}
   Object.keys(paginasAbiertas).forEach(pagina => {
     paginasAbiertas[pagina].style.zIndex= 0
