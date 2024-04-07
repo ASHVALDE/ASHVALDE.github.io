@@ -11,6 +11,7 @@
         width: 70%;
     }
 
+
     .contentPortSobreMi {
         position: relative;
         left: 15%;
@@ -52,8 +53,58 @@
             width: 70vw;
         }
     }
-</style>
 
+    .flex-containerSobremi {
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: normal;
+        align-content: normal;
+    }
+
+    .flex-itemsSobremi:nth-child(1) {
+        display: block;
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 0;
+    }
+
+    .statusBar {
+        height: 20px;
+        width: 100%;
+        background-color: #EDE9D5;
+        text-align: left;
+    }
+
+    .statusButton {
+        padding: 5px 6px;
+        height: 100%;
+        cursor: default;
+    }
+</style>
+<div class="statusBar">
+    <div class="flex-containerSobremi">
+        <div class="flex-itemsSobremi statusButton">
+            Archivo
+        </div>
+        <div class="flex-itemsSobremi statusButton">
+            Editar
+        </div>
+        <div class="flex-itemsSobremi statusButton">
+            Vista
+        </div>
+        <div class="flex-itemsSobremi statusButton">
+            Herramientas
+        </div>
+        <div class="flex-itemsSobremi statusButton">
+            Ayuda
+        </div>
+
+    </div>
+</div>
 <div class="documentoSobreMi">
     <img src="../public/images/biografia1.jpg" class="portimg">
     <div class="contentPortSobreMi">
