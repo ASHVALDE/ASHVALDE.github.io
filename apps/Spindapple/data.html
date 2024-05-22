@@ -1,0 +1,78 @@
+<style>
+    .documentoSpindapple {
+        width: 580px;
+        overflow-y: hidden;
+        text-align: justify;
+        background-color: #FFFFFF;
+        padding: 30px;
+        height: 70vh;
+        overflow-y: scroll;
+    }
+    .documentoSpindapple h1 {
+        font-size: 2rem;
+        margin: 10px 0;
+    }
+    .documentoSpindapple h2 {
+        font-size: 1rem;
+    }
+    .documentoSpindapple h4 {
+        margin: 10px 0;
+    }
+    .documentoSpindapple p {
+        font-size: 1rem;
+    }
+    code {
+    background-color: #eee;
+    border: 1px solid #999;
+    display: block;
+    padding: 20px;
+    white-space: pre-line;
+    }
+        
+</style>
+
+
+
+
+<div class="documentoSpindapple">
+    <h1>Spindapple:</h1>
+    <br style="margin:0 10px ;">
+    <h4>Idea General</h4>
+    <p>Este proyecto esta inspirado por el video "I Played DOOM Using Only Spinda Patterns" de adef</p>
+    <iframe style="margin:10px 0 ;" width="560" height="315" src="https://www.youtube.com/embed/BuV_9XW8ymo?si=HBXeSmOQNPyBjera" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p>en el video se explora la posibilidad de representar el video de DOOM con patrones de spinda:</p>
+    <p>Spinda es un pokemon introducido en la 3ra generacion (Pokemon Ruby y Zafiro) que destaca particularmente por una caracteristica que hace que cada spinda sea unico, esta caracteristica son las marcas que presenta en su cara</p>
+    <img src="public/images/spindaPatt.png" alt="" srcset="">
+    <p>el youtuber se pregunta si con estas manchas podemos representar el videojuego DOOM, a lo que amplio un poco preguntandome: ¿ Hasta donde podemos llegar a representar con la cara de este pokemon ?; Mi idea seria llegar a representar cualquier video. </p>
+    <h4>Extraer frames de cualquier video</h4>
+    <p>Para poder trabajar con los videos que necesitamos primero necesitamos entender que un video es una sucesion de imagenes, como tal para procesar el video necesitamos extraer las imagenes, y necesitamos extraer a un formato del que podamos extraer la informacion de manera sencilla</p>
+    <p>el formato mas sencillo que podemos trabajar es BMP porque no tiene ninguna compresion ni ofuscasion, de hecho el formato almacena una lista de los pixeles conteniendo los 3 valores RGB de cada pixel, en codigo tecnicamente podemos acceder con un Imagen[Pixel][R/G/B], el comando en FFMPEG para extraer los pixeles seria</p>
+    <p>Ffmpeg.exe -i Input/input.mp4 OutputFrames/%8d.bmp</p>
+    <img style="width: 100%;" src="public/images/Spindapple/BMPExtaction.png" alt="" srcset="">
+    <h4>Analisis de proyecto</h4>
+    <p>Para este proyecto es importante analizar donde estamos y para donde queremos ir, con spinda lo maximo que podemos representar son 4 manchas y la posicion de estas, no podemos definir color (Podriamos agregar su variante Shiny pero no agrega mucho al proyecto), entonces debemos trabajar con esto.</p>
+    <h4>Brillo</h4>
+    <p>Para el brillo tenia pensado que cada mancha de mas que tenga un spinda hace que su "Densidad de pixeles oscuros" aumente dando lugar a regiones de la pantalla mas oscuras entonces para regiones mas oscuras un spinda de 4 manchas seria lo ideal mientras que para una zona con mas claridad un spinda sin manchas seria lo ideal.</p>
+    <code>
+        #Si tenemos un array con la informacion de los pixeles
+        int Pixeles[n][3]
+
+        #Podemos acceder a la informacion de cada pixel individual y a los 3 colores que componen ese pixel
+        int rojo = Pixeles[n][0]
+        int verde = Pixeles[n][1]
+        int azul = Pixeles[n][2]
+
+        #Podriamos sacar la "media" de intensidad de estos 3 valores pero esto seria incorrecto dado a que ciertos colores tienen mas intencidad que otros
+        #una formula que representa correctamente el brillo teniendo en cuenta esto seria
+
+        float brightness = (red / 255.0) * 0.3 + (green / 255.0) * 0.59 + (blue / 255.0) * 0.11;
+
+        #El tema de calcular el brillo correctamente es un tema extenso y si te interesa te invito a visitar
+
+        # https://computergraphics.stackexchange.com/questions/5085/light-intensity-of-an-rgb-value
+    </code>
+</div>
+
+
+
+
