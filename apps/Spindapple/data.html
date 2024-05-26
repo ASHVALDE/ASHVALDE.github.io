@@ -71,6 +71,42 @@
 
         # https://computergraphics.stackexchange.com/questions/5085/light-intensity-of-an-rgb-value
     </code>
+    <p>Si abrimos un archivo y por cada pixel oscuro colocamos una X y a cada pixel claro ponemos un . deberiamos tener una representacion de nuestro frame en ASCII ART</p>
+    <img style="width: 100%;" src="public/images/Spindapple/representacion.png" alt="" srcset="">
+    <p>La cuestion es que cada spinda ocupa mas que un pixel entonces lo que podemos hacer para representar de la mejor forma esta zona seria dividir el video en regiones y calcular el brillo de estas regiones, esta region la va a representar un spinda.</p>
+    <img style="width: 100%;" src="public/images/Spindapple/example.gif" alt="" srcset="">
+    <p>Podemos ejecutar este algoitmo siendo nSpindas el numero de cuadriculas o "Regiones" con:</p>
+    <code>
+        for (int divY = 0; divY < nSpindas; divY++)
+        {
+            for (int divX = 0; divX < nSpindas; divX++)
+            {
+                float values = 0;
+                float mesurements = 0;
+                int initialYScanPos = divY * (height / nSpindas);
+                for (int yScan = initialYScanPos; yScan < initialYScanPos + (height / nSpindas); yScan++)
+                {
+                    int initialXScanPos = divX * (width * 3 / nSpindas);
+                    for (int xScan = initialXScanPos; xScan < initialXScanPos + (width * 3 / nSpindas); xScan = xScan + 3)
+                    {
+                        byte red = *(&pixels[xScan + (width * yScan * 3)]);
+                        byte green = *(&pixels[xScan + 1 + (width * yScan * 3)]);
+                        byte blue = *(&pixels[xScan + 2 + (width * yScan * 3)]);
+                        byte alpha = *(&pixels[xScan + 3 + (width * yScan * 3)]);
+                        values = values + (0.2126 * red + 0.7152 * green + 0.0722 * blue);
+                        mesurements++;
+                    }
+                } 
+            }
+        } 
+    </code>
+    <p>Si lo hicimos correctamente podriamos poner un spinda oscuro en las zonas con menos brillo y uno claro en las zonas claras y tendriamos un resultado tal que:</p>
+    <p>Con 2 valores de brillo:</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TQ_uDvHuP_w?si=ZNssMpallO0tXLVe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p>Con 3 valores de brillo (Y con menos spindas para que se noten mejor):</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Dq8gfLGjou4?si=t_he-yBXue-iY0h3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <h3>posicion</h3>
+    <p>Otra de las cosas que quise tener en cuenta es la posicion de las manchas de spinda dado a que seria mejor que si la zona no es completamente clara o oscura, el spinda tenga las manchas en las zonas oscuras de la imagen</p>
 </div>
 
 
