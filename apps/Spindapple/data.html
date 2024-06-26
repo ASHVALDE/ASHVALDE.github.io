@@ -21,12 +21,25 @@
     .documentoSpindapple p {
         font-size: 1rem;
     }
+    .documentoSpindapple img {
+        width: 90%;
+    }
     code {
     background-color: #eee;
     border: 1px solid #999;
     display: block;
     padding: 20px;
     white-space: pre-line;
+    }
+    @media (max-width: 768px) {
+        .sidebarparent {
+            visibility: hidden;
+            display: none !important;
+        }
+        .documentoSpindapple{
+            width: 80vw !important;
+        }
+
     }
         
 </style>
@@ -39,7 +52,9 @@
     <br style="margin:0 10px ;">
     <h4>Idea General</h4>
     <p>Este proyecto esta inspirado por el video "I Played DOOM Using Only Spinda Patterns" de adef</p>
-    <iframe style="margin:10px 0 ;" width="560" height="315" src="https://www.youtube.com/embed/BuV_9XW8ymo?si=HBXeSmOQNPyBjera" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/BuV_9XW8ymo?si=HBXeSmOQNPyBjera" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <p>en el video se explora la posibilidad de representar el video de DOOM con patrones de spinda:</p>
     <p>Spinda es un pokemon introducido en la 3ra generacion (Pokemon Ruby y Zafiro) que destaca particularmente por una caracteristica que hace que cada spinda sea unico, esta caracteristica son las marcas que presenta en su cara</p>
     <img src="public/images/spindaPatt.png" alt="" srcset="">
@@ -102,9 +117,13 @@
     </code>
     <p>Si lo hicimos correctamente podriamos poner un spinda oscuro en las zonas con menos brillo y uno claro en las zonas claras y tendriamos un resultado tal que:</p>
     <p>Con 2 valores de brillo:</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/TQ_uDvHuP_w?si=ZNssMpallO0tXLVe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/TQ_uDvHuP_w?si=ZNssMpallO0tXLVe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <p>Con 3 valores de brillo (Y con menos spindas para que se noten mejor):</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Dq8gfLGjou4?si=t_he-yBXue-iY0h3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Dq8gfLGjou4?si=t_he-yBXue-iY0h3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <h3>posicion</h3>
     <p>Otra de las cosas que quise tener en cuenta es la posicion de las manchas de spinda dado a que seria mejor que si la zona no es completamente clara o oscura, el spinda tenga las manchas en las zonas oscuras de la imagen</p>
 </div>
