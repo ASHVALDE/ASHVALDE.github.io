@@ -6,7 +6,7 @@ const startIcon = (e)=>{
 
     if(e.id=="iconActive"){
         const appname = e.getElementsByTagName("p")[0].innerText
-        createWindow(appname,"../apps/"+appname+"/data.html")
+        createWindow(appname,"../apps/"+appname+"/data")
         currentActive.id=""
 
     }
