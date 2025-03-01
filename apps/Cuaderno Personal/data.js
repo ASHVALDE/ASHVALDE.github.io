@@ -1,1 +1,0 @@
-window.open("https://ashvalde.notion.site/Proyectos-Personales-9a911fc4cdab4554b4618ba369691b33",'_self')
