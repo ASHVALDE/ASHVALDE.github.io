@@ -1,4 +1,4 @@
-var programs = ["Sobre Mi","Proyectos","Buscaminas","Configuraciones","Mario 64","Doom"]
+var programs = ["Sobre Mi","Proyectos","Buscaminas","Configuraciones","Mario 64","Zephyr","Doom"]
 var icons  = document.getElementsByClassName("icon")
 var currentActive = null
 const startIcon = (e)=>{
