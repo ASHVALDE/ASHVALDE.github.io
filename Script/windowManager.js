@@ -70,6 +70,9 @@ async function createWindow(title, link, x, y) {
     const script = await loadPage(link+".js")
     
     if(txt==false){
+      if(script!=false){
+      eval(script)
+      }
       return false
     }
     let elem = document.createElement("window")

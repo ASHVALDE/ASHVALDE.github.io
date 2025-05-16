@@ -84,6 +84,31 @@ h4 {
     z-index: 200;
     text-align: center;
 }
+.crtContainer{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+pointer-events: none; 
+  background: linear-gradient(to top, #0000001c, #0000001c, #33333304, #33333304);
+  background-size: cover;
+  background-size: 100% 6px;
+    z-index: 202;
+    text-align: center;
+    animation: scanlines infinite 5s linear ;
+
+
+}
+
+@keyframes scanlines {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -100px;
+  }
+}
 
 .vertical-center {
     margin: 0;
@@ -106,6 +131,10 @@ h4 {
 @media only screen and (max-width: 768px) {
     .vertical-center {
         width: 60%;
+    }
+    .crtContainer{
+          background-size: 100% 8px;
+
     }
 
     .login {

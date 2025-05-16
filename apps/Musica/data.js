@@ -19,10 +19,11 @@
     const firstVideo = playlists[currentGenre][0];
 
     player = new YT.Player('player', {
-      height: '300',
-      width: '300',
+      height: '349',
+      width: '328',
       videoId: firstVideo,
-      playerVars: { playsinline: 1 },
+      
+      playerVars: { playsinline: 1,controls:0 },
       events: {
         onStateChange: onPlayerStateChange
       }
@@ -35,16 +36,15 @@
     // Actualiza estado de reproducción
     if (event.data === YT.PlayerState.PLAYING) {
       isPlaying = true;
-      document.getElementById('playPauseBtn').textContent = '⏸️ Pause';
+      document.getElementById('playPauseBtn').textContent = '⏸️';
     } else {
       isPlaying = false;
-      document.getElementById('playPauseBtn').textContent = '▶️ Play';
+      document.getElementById('playPauseBtn').textContent = '▶️';
     }
   }
 
   function initUI() {
     const genreSelect = document.getElementById('genere');
-    const trackButtons = document.getElementById('trackButtons');
     const playPauseBtn = document.getElementById('playPauseBtn');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');

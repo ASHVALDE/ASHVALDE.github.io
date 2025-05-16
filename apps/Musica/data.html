@@ -1,36 +1,65 @@
 <style>
   .documentoMusica {
-    max-height: 80vh;
+    height: 502px;
     overflow-y: auto;
     background-color: #FFFFFF;
   }
   .contentPortMusica {
-    margin: 30px;
     height: min-content;
     width: min-content;
   }
   #controls button,
   #trackButtons button {
-    margin: 5px;
-    padding: 8px 12px;
+    margin: 0;
+    padding: 8px 20px;
+    min-width: 0;
     cursor: pointer;
   }
   #controls {
     margin-bottom: 15px;
+  }
+  #player{
+    margin-top: 53px;
+  }
+  .overlay{
+    position: absolute;
+    top: 27px;
+    bottom: 3px;
+    left: 3px;
+    right: 3px;
+    background-image: url("../../public/images/backMusic.png");
+    background-size: 100% 100%;
+    pointer-events: none;
+
+  }
+  #genere{
+    position: absolute;
+    top: 43px;
+    right: 18px;
+    width: 30%;
+  }
+  #controls{
+    position: absolute !important;
+    left: 20px;
+    margin-top: 35px;
+
   }
 </style>
 
 <div class="documentoMusica">
   <div class="contentPortMusica">
     <div id="player"></div>
-
-    <div id="controls">
-      <button id="prevBtn">⏮️ Anterior</button>
-      <button id="playPauseBtn">▶️ Play</button>
-      <button id="nextBtn">⏭️ Siguiente</button>
+    <div class="overlay">
+    </div>
+   <div id="controls">
+      <button id="prevBtn">⏮️</button>
+      <button id="playPauseBtn">▶️</button>
+      <button id="nextBtn">⏭️</button>
     </div>
 
-    <label for="genere">Playlist:</label>
+
+
+
     <select id="genere"></select>
 
     <div id="trackButtons"></div>
