@@ -66,6 +66,8 @@ async function createWindow(title, link, x, y) {
   if(paginasAbiertas[title]){
     bringAppFront(title)
   }else{
+    paginasAbiertas[title] = elem.firstChild
+
     const txt = await loadPage(link+".html")
     const script = await loadPage(link+".js")
     
@@ -78,7 +80,6 @@ async function createWindow(title, link, x, y) {
     let elem = document.createElement("window")
     elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:" + y + "px;left:" + x + "px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>" + title + "</div><div class='title-bar-controls'><button onpointerdown=hideThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Minimize'></button><button class='closewindowsbutton' onpointerdown=closeThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Close'></button></div></div><div class='window-body'><div>" + txt + "</div> </div></div></div>"
     elem.firstChild.onpointerdown = (e)=>{bringAppFront(title,e)}
-    paginasAbiertas[title] = elem.firstChild
     let elemento = document.body.append(elem.firstChild)
     elem.style.zIndex = -3
     createTaskBarButton(title)
