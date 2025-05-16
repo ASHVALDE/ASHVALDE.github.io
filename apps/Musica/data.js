@@ -1,4 +1,5 @@
   const playlists = {
+    "Lit yo": ["JGkazi6khPA","aMqI5NRuu38"],
     "chill": ["-KH6ZSavJ6Y","ZXni9_91ORs"],
   };
 
