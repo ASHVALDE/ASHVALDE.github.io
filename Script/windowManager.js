@@ -68,9 +68,7 @@ async function createWindow(title, link, x, y) {
   }else{
     const txt = await loadPage(link+".html")
     const script = await loadPage(link+".js")
-    if(script!=false){
-      eval(script)
-    }
+    
     if(txt==false){
       return false
     }
@@ -82,6 +80,9 @@ async function createWindow(title, link, x, y) {
     elem.style.zIndex = -3
     createTaskBarButton(title)
     bringAppFront(title)
+    if(script!=false){
+      eval(script)
+    }
   }
 
 }

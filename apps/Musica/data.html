@@ -1,0 +1,38 @@
+<style>
+  .documentoMusica {
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: #FFFFFF;
+  }
+  .contentPortMusica {
+    margin: 30px;
+    height: min-content;
+    width: min-content;
+  }
+  #controls button,
+  #trackButtons button {
+    margin: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  #controls {
+    margin-bottom: 15px;
+  }
+</style>
+
+<div class="documentoMusica">
+  <div class="contentPortMusica">
+    <div id="player"></div>
+
+    <div id="controls">
+      <button id="prevBtn">⏮️ Anterior</button>
+      <button id="playPauseBtn">▶️ Play</button>
+      <button id="nextBtn">⏭️ Siguiente</button>
+    </div>
+
+    <label for="genere">Playlist:</label>
+    <select id="genere"></select>
+
+    <div id="trackButtons"></div>
+  </div>
+</div>
