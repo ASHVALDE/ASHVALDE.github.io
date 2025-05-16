@@ -75,7 +75,17 @@ function setWallpaper(e){
 }
 setWallpaper()
 
+function setLoginDisabled(campo){
+    if(campo.value == "0"){
+        return;
+    }
+    Cookies.set('loginDisabled',campo.value=='1')
+}
 
-
+function logOut(){
+    Cookies.set('loginDisabled',false)
+    Cookies.set('lastTime',null)
+    location.reload();
+}
 
 createIcons()

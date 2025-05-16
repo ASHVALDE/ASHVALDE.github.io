@@ -6,24 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASH-VALDE</title>
     <link rel="stylesheet" href="Stylesheet/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
     <link id="daStyleshit" rel="stylesheet" href="Stylesheet/98.css">
     <link rel="icon" type="image/x-icon" href="./favicon-96x96.png">
 
 </head>
 
-<body >
-    <div  class="escritorio">
-        <div id="escritorio" class="icon-grid">
+<body>
 
+    <div id="loadingContainer" class="loading">
+        <img class="vertical-center" src="public/images/loading.gif" alt="" srcset="">
+        <p class="etiquetaCopy">Copyright ©2002-202X</p>
+        <p class="etiquetaMirlo">Mirlos Estudios</p>
+    </div>
+
+    <div id="loginContainer" class="login">
+        <div class="vertical-center loginparent ">
+            <div class="logindiv1">
+                <img class="xpLogoLogin" src="public/images/xplogo.png" alt="" srcset="">
+                <p class="loginInfo">Para comenzar, Seleccione un usuario.</p>
+            </div>
+            <div class="logindiv2">
+
+
+                <div id="userArea" class="vertical-center2 iconparent">
+                    <div class="icondiv1">
+                        <img class="userIcon" src="public/images/xpChessIcon.jpg" alt="" srcset="">
+                    </div>
+                    <div class="icondiv2">
+                        <p>Administrador</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="loginInfo2">Para comenzar, Seleccione un usuario.</p>
+
+    </div>
+
+
+    <div class="escritorio">
+        <div id="escritorio" class="icon-grid">
         </div>
     </div>
 
     <div class="Menu-Inicio" id="Menu">
         <img class="Menu-Inicio-SideBar" src="public/images/WindowsSideBar.png" alt="" srcset="">
         <div class="flex-container-Menu">
-            <div onclick='window.location.replace("https://www.youtube.com/watch?v=uHgt8giw1LY&pp=ygUebmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXAgbm8gYWRz")' class="flex-container-Menu-Item">
-                <img  style="height: 100%;" src="public/images/iconMUS.png" alt="" srcset="">
+            <div onclick='window.location.replace("https://www.youtube.com/watch?v=uHgt8giw1LY&pp=ygUebmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXAgbm8gYWRz")'
+                class="flex-container-Menu-Item">
+                <img style="height: 100%;" src="public/images/iconMUS.png" alt="" srcset="">
                 <span style="margin-left: 15px;">GTA:SA</span>
             </div>
             <div class="flex-container-Menu-Item">
@@ -35,16 +67,21 @@
                 <span style="margin-left: 15px;">Visual Studio</span>
             </div>
 
+            <div class="flex-container-Menu-Item" onclick="logOut()">
+                <img style="height: 100%;" src="public/images/icon.png" alt="" srcset="">
+                <span style="margin-left: 15px;">Cerrar sesion</span>
+            </div>
+
         </div>
     </div>
     <!--Barra de tareas-->
     <div class="barraTareas">
         <button id="startButton">
-            <img style="margin-right: 5px;" src="public/images/start.png" alt="" srcset="">  Inicio
-            
+            <img style="margin-right: 5px;" src="public/images/start.png" alt="" srcset=""> Inicio
+
         </button>
         <div id="taskbarIcons">
-            
+
         </div>
         <button class="active" id="tiempo">
         </button>
@@ -53,6 +90,7 @@
 
 </body>
 <script src="Script/home.js"></script>
+<script src="Script/Login.js"></script>
 <script src="Script/reloj.js"></script>
 <script src="Script/windowManager.js"></script>
 <script src="Script/loadWindows.js"></script>

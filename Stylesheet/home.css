@@ -1,19 +1,31 @@
 @font-face {
     font-family: sansBold;
     src: url("MS\ Sans\ Serif\ Bold.ttf");
-  }
+}
+
+@font-face {
+    font-family: winxp;
+    src: url("windows-xp-tahoma.otf");
+}
+
 html body {
     padding: 0;
     margin: 0;
     background-color: #008080;
     overflow: hidden;
-    font-family:"Pixelated MS Sans Serif";
+    font-family: "Pixelated MS Sans Serif";
 
 }
-h1, h2, h3, h5, h4{
-    font-family:"sansBold";
+
+h1,
+h2,
+h3,
+h5,
+h4 {
+    font-family: "sansBold";
 
 }
+
 .barraTareas {
     position: absolute;
     bottom: 0;
@@ -48,9 +60,184 @@ h1, h2, h3, h5, h4{
     top: 10%;
 }
 
-span{
-    font-family:"Pixelated MS Sans Serif";
+.login {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    background-image: url("../public/images/loginWall.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    z-index: 1;
+    text-align: center;
 }
+
+.loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    z-index: 200;
+    text-align: center;
+}
+
+.vertical-center {
+    margin: 0;
+    position: relative;
+    top: 40%;
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+    width: 20%;
+}
+.vertical-center2 {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 20%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .vertical-center {
+        width: 60%;
+    }
+
+    .login {
+        background-size: cover;
+        background-attachment: unset;
+    }
+
+}
+
+.userIcon {
+    width: 50px;
+    border: white 2px solid;
+    border-radius: 2px;
+}
+
+.loginparent {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 100%;
+}
+
+.loginInfo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.3vw;
+    color: white;
+}
+.loginInfo2 {
+    visibility: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.3vw;
+    color: white;
+}
+
+.logindiv1 {
+    position: relative;
+    padding: 0 30px;
+    text-align: right;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.logindiv1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 2px; /* Grosor de la línea */
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, white, transparent);
+}
+
+.logindiv2 {
+    padding: 0 30px;
+    text-align: left;
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.iconparent {
+    width: min-content;
+    height: min-content;
+    padding: 5px;
+    padding-top: 7px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    border-radius: 3px; /* O el valor que prefieras */
+    transition: background 0.3s ease;
+}
+.activeUser {
+    background: linear-gradient(to right, rgb(132, 181, 255), transparent);
+}
+
+html{
+    user-select: none;
+}
+
+.icondiv1 {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+
+.icondiv2 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.icondiv2 p {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    position: relative;
+    top: 40%;
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+    margin: 0 20px;
+
+    font-weight: 700;
+}
+
+.xpLogoLogin {
+    width: 30%;
+}
+
+.etiquetaCopy {
+    position: absolute;
+    color: white;
+    bottom: 0;
+    left: 15px;
+    font-family: winxp;
+    font-size: 1.5rem;
+}
+
+.etiquetaMirlo {
+    position: absolute;
+    color: white;
+    bottom: 30px;
+    left: 15px;
+    font-family: winxp;
+    font-size: 1.5rem;
+}
+
+span {
+    font-family: "Pixelated MS Sans Serif";
+}
+
 .escritorio {
     position: absolute;
     top: 0;
@@ -65,26 +252,61 @@ span{
     min-height: 100vh;
 
 }
+
 .icon-grid {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column; /* Por defecto */
+    flex-direction: column;
+    /* Por defecto */
     align-content: flex-start;
-    
+
     padding: 10px;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
     overflow: hidden;
-  }
+}
+
 @media only screen and (orientation: portrait) {
 
     .escritorio {
-
         background-repeat: no-repeat;
-        background-size:cover;
+        background-size: cover;
         min-height: none;
         background-position: center;
+    }
+    .xpLogoLogin{
+            margin: 0;
+    position: relative;
+    top: 40%;
+    -ms-transform: translateY(-40%);
+    transform: translateY(-40%);
+        width: 70%;
+    }
+    .logindiv1{
+        height: 20vh;
+    }
+    .loginInfo{   
+        visibility: collapse;
+        display: none;
+    }
+    .loginInfo2 {
+        position: relative;
+    visibility:visible;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color: white;
+    top: 35%;
+}
+.loginContainer{
+    user-select: none;
+}
+
+    .userIcon{
+        width: 40px;
+    }
+    .icondiv2 p{
+        font-size: 0.8rem;
     }
 }
 
@@ -95,24 +317,29 @@ span{
     background: none;
     border: none;
 }
-.icon img{
+
+.icon img {
     height: 70%;
     margin: 0;
 }
-.Iconnametag{
+
+.Iconnametag {
     width: 100%;
     border: dotted gray 1px;
     word-wrap: break-word;
-    
+
 }
-.Iconnametag p{
-margin: 0;
+
+.Iconnametag p {
+    margin: 0;
 }
-#iconActive{
+
+#iconActive {
     background-color: #003333;
     color: white;
 }
-.Menu-Inicio{
+
+.Menu-Inicio {
     position: absolute;
     bottom: 30px;
     width: 200px;
@@ -120,23 +347,26 @@ margin: 0;
     background-color: #C0C0C0;
     display: none;
     border-bottom: black 1px solid;
-    
+
 }
-.Menu-Inicio-SideBar{
+
+.Menu-Inicio-SideBar {
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
     width: 20px;
 }
-.Menu-Inicio-Activo{
-    display:block !important;
+
+.Menu-Inicio-Activo {
+    display: block !important;
 }
+
 .flex-container-Menu {
     position: relative;
     left: 20px;
     width: 180px;
-    
+
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -144,41 +374,46 @@ margin: 0;
     justify-content: flex-start;
     align-items: normal;
     align-content: normal;
-  }
-  .flex-container-Menu-Item {
+}
+
+.flex-container-Menu-Item {
     user-select: none;
     height: 25px;
     padding: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
-  .flex-container-Menu-Item:hover {
+}
+
+.flex-container-Menu-Item:hover {
     background-color: #000080;
     color: white;
-  }
+}
 
-  #taskbarIcons{
+#taskbarIcons {
     position: absolute;
     top: 0;
     left: 72px;
-    right:  100px;
+    right: 100px;
     height: 100%;
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     align-content: center;
     align-items: center;
-  }
-  .video-container {
+}
+
+.video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     height: 0;
-  }
-  .video-container iframe {
+}
+
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  }
+}
