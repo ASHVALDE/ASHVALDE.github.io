@@ -1,4 +1,4 @@
-  const playlists = {
+  let playlists = {
     "Lit yo": ["JGkazi6khPA","5tfDYbnbC6c","LgdE2trPfBw","eVBubpQbkg8"],
     "chill": ["-KH6ZSavJ6Y","ZXni9_91ORs"],
   };
@@ -17,7 +17,7 @@
   window.onYouTubeIframeAPIReady = () => {
     // Inicializamos con la primera pista de la primera playlist
     currentGenre = Object.keys(playlists)[0];
-    const firstVideo = playlists[currentGenre][0];
+    let firstVideo = playlists[currentGenre][0];
 
     player = new YT.Player('player', {
       height: '349',
@@ -54,14 +54,14 @@
 }
 
   function initUI() {
-    const genreSelect = document.getElementById('genere');
-    const playPauseBtn = document.getElementById('playPauseBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    let genreSelect = document.getElementById('genere');
+    let playPauseBtn = document.getElementById('playPauseBtn');
+    let prevBtn = document.getElementById('prevBtn');
+    let nextBtn = document.getElementById('nextBtn');
 
     // Rellenar select de géneros
     Object.keys(playlists).forEach((genre, idx) => {
-      const opt = document.createElement('option');
+      let opt = document.createElement('option');
       opt.value = genre;
       opt.textContent = genre;
       if (idx === 0) opt.selected = true;
@@ -105,20 +105,20 @@
 
     // Carga y reproduce la pista actual
     function loadCurrentVideo() {
-      const videoId = playlists[currentGenre][currentIndex];
+      let videoId = playlists[currentGenre][currentIndex];
       player.loadVideoById(videoId);
     }
 
     // Primera renderización de botones
   }
 let pill = document.getElementById("slider");
-const sliderBox = document.getElementById("sliderBox");
+let sliderBox = document.getElementById("sliderBox");
 let isDragging = false;
 
 // Actualiza la posición del “pill” según el progreso del vídeo
 setInterval(() => {
   if (player && typeof player.getCurrentTime === "function" && !isDragging) {
-    const progress = player.getCurrentTime() / player.getDuration();
+    let progress = player.getCurrentTime() / player.getDuration();
     pill.style.left = (progress * 100) + "%";
   }
 }, 200);
@@ -146,7 +146,7 @@ document.addEventListener("mouseup", () => {
 sliderBox.addEventListener("touchstart", (e) => {
   e.preventDefault();           // evita que “scroll” arrastre la página
   isDragging = true;
-  const touchX = e.touches[0].clientX;
+  let touchX = e.touches[0].clientX;
   updatePillPosition(touchX);
   seekVideo(touchX);
 }, { passive: false });
@@ -154,7 +154,7 @@ sliderBox.addEventListener("touchstart", (e) => {
 document.addEventListener("touchmove", (e) => {
   if (isDragging) {
     e.preventDefault();
-    const touchX = e.touches[0].clientX;
+    let touchX = e.touches[0].clientX;
     updatePillPosition(touchX);
     seekVideo(touchX);
   }
@@ -167,8 +167,8 @@ document.addEventListener("touchend", () => {
 // ——————————————————————————————————————————————
 // FUNCIONES AUXILIARES: recibiendo coordenada X en vez de evento
 function updatePillPosition(clientX) {
-  const rect = sliderBox.getBoundingClientRect();
-  const pillWidth = pill.offsetWidth;
+  let rect = sliderBox.getBoundingClientRect();
+  let pillWidth = pill.offsetWidth;
   let x = clientX - rect.left - pillWidth / 2;
 
   let percentage = (x + pillWidth / 2) / rect.width;
@@ -179,14 +179,14 @@ function updatePillPosition(clientX) {
 }
 
 function seekVideo(clientX) {
-  const rect = sliderBox.getBoundingClientRect();
-  const pillWidth = pill.offsetWidth;
+  let rect = sliderBox.getBoundingClientRect();
+  let pillWidth = pill.offsetWidth;
   let x = clientX - rect.left - pillWidth / 2;
 
   let percentage = (x + pillWidth / 2) / rect.width;
   percentage = percentage - 0.075;
   percentage = Math.max(0, Math.min(percentage, 1));
 
-  const seekTime = percentage * player.getDuration();
+  let seekTime = percentage * player.getDuration();
   player.seekTo(seekTime, true);
 }
