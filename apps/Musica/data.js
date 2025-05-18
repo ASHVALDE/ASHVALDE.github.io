@@ -26,7 +26,8 @@
       
       playerVars: { playsinline: 1,controls:0 },
       events: {
-        onStateChange: onPlayerStateChange
+        onStateChange: onPlayerStateChange,
+
       }
     });
 
@@ -34,15 +35,23 @@
   };
 
   function onPlayerStateChange(event) {
-    // Actualiza estado de reproducción
-    if (event.data === YT.PlayerState.PLAYING) {
-      isPlaying = true;
-      document.getElementById('playPauseBtn').textContent = '⏸️';
+  if (event.data === YT.PlayerState.PLAYING) {
+    isPlaying = true;
+    document.getElementById('playPauseBtn').textContent = '⏸️';
+  } else if (event.data === YT.PlayerState.ENDED) {
+    // Pasar al siguiente si hay más
+    if (currentIndex < playlists[currentGenre].length - 1) {
+      currentIndex++;
+      player.loadVideoById(playlists[currentGenre][currentIndex]);
     } else {
       isPlaying = false;
       document.getElementById('playPauseBtn').textContent = '▶️';
     }
+  } else {
+    isPlaying = false;
+    document.getElementById('playPauseBtn').textContent = '▶️';
   }
+}
 
   function initUI() {
     const genreSelect = document.getElementById('genere');
@@ -102,3 +111,82 @@
 
     // Primera renderización de botones
   }
+let pill = document.getElementById("slider");
+const sliderBox = document.getElementById("sliderBox");
+let isDragging = false;
+
+// Actualiza la posición del “pill” según el progreso del vídeo
+setInterval(() => {
+  if (player && typeof player.getCurrentTime === "function" && !isDragging) {
+    const progress = player.getCurrentTime() / player.getDuration();
+    pill.style.left = (progress * 100) + "%";
+  }
+}, 200);
+
+// ——————————————————————————————————————————————
+// LISTENER PARA RATÓN
+sliderBox.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  updatePillPosition(e.clientX);
+  seekVideo(e.clientX);
+});
+document.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    updatePillPosition(e.clientX);
+    seekVideo(e.clientX);
+  }
+});
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
+// ——————————————————————————————————————————————
+// LISTENER PARA TOUCH
+// En touchstart evitamos que el scroll interfiera
+sliderBox.addEventListener("touchstart", (e) => {
+  e.preventDefault();           // evita que “scroll” arrastre la página
+  isDragging = true;
+  const touchX = e.touches[0].clientX;
+  updatePillPosition(touchX);
+  seekVideo(touchX);
+}, { passive: false });
+
+document.addEventListener("touchmove", (e) => {
+  if (isDragging) {
+    e.preventDefault();
+    const touchX = e.touches[0].clientX;
+    updatePillPosition(touchX);
+    seekVideo(touchX);
+  }
+}, { passive: false });
+
+document.addEventListener("touchend", () => {
+  isDragging = false;
+}, { passive: false });
+
+// ——————————————————————————————————————————————
+// FUNCIONES AUXILIARES: recibiendo coordenada X en vez de evento
+function updatePillPosition(clientX) {
+  const rect = sliderBox.getBoundingClientRect();
+  const pillWidth = pill.offsetWidth;
+  let x = clientX - rect.left - pillWidth / 2;
+
+  let percentage = (x + pillWidth / 2) / rect.width;
+  percentage = percentage - 0.075;
+  percentage = Math.max(0, Math.min(percentage, 1));
+
+  pill.style.left = (percentage * 100) + "%";
+}
+
+function seekVideo(clientX) {
+  const rect = sliderBox.getBoundingClientRect();
+  const pillWidth = pill.offsetWidth;
+  let x = clientX - rect.left - pillWidth / 2;
+
+  let percentage = (x + pillWidth / 2) / rect.width;
+  percentage = percentage - 0.075;
+  percentage = Math.max(0, Math.min(percentage, 1));
+
+  const seekTime = percentage * player.getDuration();
+  player.seekTo(seekTime, true);
+}
