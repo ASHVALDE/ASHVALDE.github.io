@@ -8,11 +8,35 @@
   let currentIndex = 0;
   let isPlaying = false;
 
-  // Carga de la API
-  var tag = document.createElement('script');
+
+async function loadSongs() {
+  try {
+    const response = await fetch("https://biblioteca.ashvalde.com/songs.json");
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const songs = await response.json();
+    console.log("Loaded songs:", songs);
+    return songs;
+  } catch (error) {
+    console.warn("Failed to fetch songs.json, using default:", error);
+    return defaultSongs;
+  }
+}
+
+loadSongs().then(songs => {
+  playlists = songs
+   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   document.head.appendChild(tag);
 
+});
+
+
+
+ 
   // API ready
   window.onYouTubeIframeAPIReady = () => {
     // Inicializamos con la primera pista de la primera playlist
