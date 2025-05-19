@@ -2,6 +2,10 @@
     "Lit yo": ["JGkazi6khPA","5tfDYbnbC6c","LgdE2trPfBw","eVBubpQbkg8"],
     "chill": ["-KH6ZSavJ6Y","ZXni9_91ORs"],
   };
+  let defaultSongs = {
+    "Lit yo": ["JGkazi6khPA","5tfDYbnbC6c","LgdE2trPfBw","eVBubpQbkg8"],
+    "chill": ["-KH6ZSavJ6Y","ZXni9_91ORs"],
+  };
 
   let player;
   let currentGenre;
