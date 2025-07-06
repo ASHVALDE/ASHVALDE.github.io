@@ -371,12 +371,75 @@ span {
 .Menu-Inicio {
     position: absolute;
     bottom: 30px;
-    width: 200px;
-    height: 300px;
-    background-color: #C0C0C0;
+    width: 450px;
+    height: 500px;
+    background-color: #aecbf3;
     display: none;
-    border-bottom: black 1px solid;
+    border: #0C5FCC solid 2px;
+    border-radius: 7px 7px 0 0;
+    overflow: hidden;
+}
+.menu-top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: #0C5FCC;
+    background: linear-gradient(90deg,rgba(12, 95, 204, 1) 0%, rgba(1, 72, 169, 1) 100%);
+}
+.menu-top-img{
+    position: absolute;
+    top: 10%;
+    height: 75%;
+    left: 5px;
+    border: white solid 2px;
+    border-radius: 5px;
+    
+}
+.menu-top-label{
+    position: absolute;
+    left: 17%;
+    top: 15%;
+    font-size: large;
+    color: white;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    
+}
+.menu-mid{
+    position: absolute;
+    top: 75px;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #f4f5f7;
+}
 
+.menu-mid-1{
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    left: 0;
+    width: 50%;
+    background-color: #f4f5f7;
+}
+.menu-mid-2{
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    right: 0;
+    width: 50%;
+    background-color: #aecbf3;
+}
+.menu-bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #0C5FCC;
+    background: linear-gradient(90deg,rgba(12, 95, 204, 1) 0%, rgba(1, 72, 169, 1) 100%);
 }
 
 .Menu-Inicio-SideBar {
@@ -407,15 +470,41 @@ span {
 
 .flex-container-Menu-Item {
     user-select: none;
-    height: 25px;
+    height: 30px;
     padding: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+.flex-container-Menu-shutdown {
+    position: absolute;
+    top: 20%;
+    right: 5px;
+    user-select: none;
+    height: 30px;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-family: tahoma;
+}
+.flex-container-Menu-logoff {
+    position: absolute;
+    top: 20%;
+    right: 175px;
+    user-select: none;
+    height: 30px;
+    width: 125px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-family: tahoma;
+}
 
 .flex-container-Menu-Item:hover {
-    background-color: #000080;
+    background-color: #0C5FCC;
     color: white;
 }
 

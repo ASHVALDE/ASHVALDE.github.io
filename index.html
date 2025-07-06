@@ -54,26 +54,53 @@
     </div>
 
     <div class="Menu-Inicio" id="Menu">
-        <img class="Menu-Inicio-SideBar" src="public/images/WindowsSideBar.png" alt="" srcset="">
-        <div class="flex-container-Menu">
-            <div onclick='window.location.replace("https://www.youtube.com/watch?v=uHgt8giw1LY&pp=ygUebmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXAgbm8gYWRz")'
-                class="flex-container-Menu-Item">
-                <img style="height: 100%;" src="public/images/iconMUS.png" alt="" srcset="">
-                <span style="margin-left: 15px;">GTA:SA</span>
+        <div class="menu-top">
+            <img class="menu-top-img" src="./public/images/xpChessIcon.jpg" alt="">
+            <p class="menu-top-label">Ash</p>
+        </div>
+        <div class="menu-mid">
+            <div class="menu-mid-1">
+                <div class="flex-container-Menu-Item" onclick="createWindow('Mario 64','../apps/Mario 64/data')">
+                    <img style="height: 100%;" src="apps/Mario 64/icon.png" alt="" srcset="">
+                    <span style="margin-left: 15px;">Mario 64</span>
+                </div>
+                <div class="flex-container-Menu-Item" onclick="createWindow('Doom','../apps/Doom/data')">
+                    <img style="height: 100%;" src="apps/Doom/icon.png" alt="" srcset="">
+                    <span style="margin-left: 15px;">Doom</span>
+                </div>
+                <div class="flex-container-Menu-Item" onclick="createWindow('Buscaminas','../apps/Buscaminas/data')">
+                    <img style="height: 100%;" src="apps/Buscaminas/icon.png" alt="" srcset="">
+                    <span style="margin-left: 15px;">Buscaminas</span>
+                </div>
+
+                <div onclick='window.open("https://www.youtube.com/watch?v=KGBsHpOkYYQ")'
+                    class="flex-container-Menu-Item">
+                    <img style="height: 100%;" src="public/images/gta.jpg" alt="" srcset="">
+                    <span style="margin-left: 15px;">GTA:SA</span>
+                </div>
+
             </div>
-            <div class="flex-container-Menu-Item">
-                <img style="height: 100%;" src="public/images/icon.png" alt="" srcset="">
-                <span style="margin-left: 15px;">Blender</span>
-            </div>
-            <div class="flex-container-Menu-Item" onclick="">
-                <img style="height: 100%;" src="public/images/icon.png" alt="" srcset="">
-                <span style="margin-left: 15px;">Visual Studio</span>
+            <div class="menu-mid-2">
+                <div class="flex-container-Menu-Item">
+                    <img style="height: 100%;" src="public/images/Equipo.png" alt="" srcset="">
+                    <span style="margin-left: 15px;">Mi PC</span>
+                </div>
+                <div class="flex-container-Menu-Item">
+                    <img style="height: 100%;" src="public/images/contacto.png" alt="" srcset="">
+                    <span style="margin-left: 15px;">Contacto</span>
+                </div>
             </div>
 
-            <div class="flex-container-Menu-Item" onclick="logOut()">
-                <img style="height: 100%;" src="public/images/icon.png" alt="" srcset="">
-                <span style="margin-left: 15px;">Cerrar sesion</span>
-            </div>
+        </div>
+        <div class="menu-bottom">
+                <div class="flex-container-Menu-shutdown" onclick="shutDown()">
+                    <img style="height: 100%;" src="public/images/shutdown.png" alt="" srcset="">
+                    <span style="margin-left: 7px;">Apagar computador</span>
+                </div>
+                <div class="flex-container-Menu-logoff" onclick="logOut()">
+                    <img style="height: 100%;" src="public/images/logoff.png" alt="" srcset="">
+                    <span style="margin-left: 7px;">Cerrar sesion</span>
+                </div>
 
         </div>
     </div>

@@ -1,4 +1,4 @@
-var programs = ["Sobre Mi","Biblioteca","Proyectos","Musica","Mario 64","Doom","Buscaminas","Configuraciones",]
+var programs = ["Sobre Mi","Biblioteca","Proyectos","Musica","Configuraciones",]
 var icons  = document.getElementsByClassName("icon")
 var currentActive = null
 const startIcon = (e)=>{
@@ -87,5 +87,10 @@ function logOut(){
     Cookies.set('lastTime',null)
     location.reload();
 }
+function shutDown(){
+    window.location = "https://www.youtube.com/watch?v=AK5wHDdlZ0w"
+}
+
+
 
 createIcons()

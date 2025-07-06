@@ -10,11 +10,13 @@ function initialClick(e) {
     document.addEventListener("pointermove", move, false);
     document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
 
-  }else if(e.target.classList.contains("flex-container-Menu-Item")){
-    document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
 
+  }else if(e.target.classList.contains("flex-container-Menu-Item")){
+    setTimeout(()=>{
+      document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
+    },100)
   }
-  else if (e.target.classList.contains("escritorio")) {
+  else if (e.target.id == "escritorio") {
     const currentActive = document.getElementById("iconActive")
     document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
     if (currentActive) {
@@ -22,7 +24,6 @@ function initialClick(e) {
     }
   }else if(e.target.id=="startButton"){
     document.getElementById("Menu").classList.toggle("Menu-Inicio-Activo")
-    console.log()
   }
   
 }
