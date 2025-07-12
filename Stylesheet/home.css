@@ -141,6 +141,17 @@ pointer-events: none;
         background-size: cover;
         background-attachment: unset;
     }
+    .Menu-Inicio {
+    position: absolute;
+    width: 70% !important;
+    }
+    .menu-top-img{
+    top: 25%!important;
+    height: 50% !important;
+    }
+    .menu-top-label{
+        left: 60px !important;
+    }
 
 }
 
@@ -337,6 +348,7 @@ span {
     .icondiv2 p{
         font-size: 0.8rem;
     }
+    
 }
 
 .icon {
