@@ -208,6 +208,7 @@ pointer-events: none;
 }
 
 .iconparent {
+    
     width: min-content;
     height: min-content;
     padding: 5px;
@@ -328,7 +329,6 @@ span {
     }
     .loginInfo{   
         visibility: collapse;
-        display: none;
     }
     .loginInfo2 {
         position: relative;
