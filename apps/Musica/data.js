@@ -66,6 +66,7 @@ loadSongs().then(songs => {
   if (event.data === YT.PlayerState.PLAYING) {
     isPlaying = true;
     document.getElementById('playPauseBtn').textContent = '⏸️';
+    document.getElementById("pinwidanza").src = "../../public/images/pinwidanza.webp"
   } else if (event.data === YT.PlayerState.ENDED) {
     // Pasar al siguiente si hay más
     if (currentIndex < playlists[currentGenre].length - 1) {
@@ -74,10 +75,13 @@ loadSongs().then(songs => {
     } else {
       isPlaying = false;
       document.getElementById('playPauseBtn').textContent = '▶️';
+      document.getElementById("pinwidanza").src = "../../public/images/pinwi.png"
     }
   } else {
     isPlaying = false;
     document.getElementById('playPauseBtn').textContent = '▶️';
+    document.getElementById("pinwidanza").src = "../../public/images/pinwi.png"
+
   }
 }
 
