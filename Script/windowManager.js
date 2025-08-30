@@ -67,6 +67,8 @@ async function createWindow(title, link, x, y) {
   if(paginasAbiertas[title]=="Loading"){
     return;
   }
+  const audio = new Audio('public/Balloon.mp3');
+  audio.play();
   if(paginasAbiertas[title]){
     bringAppFront(title)
   }else{
@@ -99,6 +101,8 @@ async function createWindow2(title, link, x, y) {
   if(paginasAbiertas[title]=="Loading"){
     return;
   }
+  const audio = new Audio('public/Balloon.mp3');
+  audio.play();
   if(paginasAbiertas[title]){
     bringAppFront(title)
   }else{
