@@ -7,15 +7,13 @@
     }
 
     .portimg {
-        margin-top: 50px;
-        width: 70%;
+        width: 100%;
     }
-
 
     .contentPortSobreMi {
         position: relative;
-        left: 15%;
-        width: 70%;
+        left: 5%;
+        width: 90%;
         text-align: left;
     }
 
@@ -52,15 +50,46 @@
         .portimg {
             width: 70vw;
         }
-    }
+        .n1{
+            flex-direction: column !important;
+            text-align: left !important;
+            direction: ltr !important;
+            align-items: start !important;
+                        width: 90% !important;
+                        margin: 5px;
 
+        }
+        .n1 div{
+                        width: 100% !important;
+                        padding: 5px !important;
+
+        }
+        .n1 img{
+            width: 90% !important;
+            margin: 0 !important;
+        }
+        .n1 ul{
+                        direction: ltr !important;
+                        float: left !important;
+                        text-align: left!important;
+
+        }
+
+        .n2{
+            text-align: left !important;
+        }
+        
+    }
+.n2{
+            text-align: right;
+        }
     .flex-containerSobremi {
         display: inline-flex;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: flex-start;
-        align-items: normal;
-        align-content: normal;
+        align-items: center;
+        align-content: center;
     }
 
     .flex-itemsSobremi:nth-child(1) {
@@ -84,8 +113,79 @@
         height: 100%;
         cursor: default;
     }
+
     .statusButton:hover {
         background-color: #1660E8;
+    }
+
+    .flex-container_sm {
+        margin: 15px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: normal;
+        align-items: center;
+        align-content: normal;
+    }
+
+    .flex-items_sm:nth-child(1) {
+        display: block;
+        width: fit-content;
+        flex-basis: auto;
+        align-self: auto;
+        order: 0;
+    }
+
+    .flex-items_sm:nth-child(2) {
+        padding: 25px;
+        width: 75%;
+        text-align: justify;
+        display: block;
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        font-size: larger;
+        order: 0;
+    }
+
+
+
+    .flex-container_sm2 {
+        font-size: larger;
+        margin: 30px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: normal;
+        align-items: center;
+        align-content: normal;
+        text-align: left;
+    }
+
+    .flex-items_sm2:nth-child(1) {
+        display: block;
+        width: 65%;
+        flex-basis: auto;
+        align-self: auto;
+        order: 0;
+    }
+
+    .flex-items_sm2:nth-child(2) {
+        padding: 25px;
+        width: 35%;
+        text-align: justify;
+        display: block;
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        font-size: larger;
+        order: 0;
+    }
+
+    .sobremi_titulo {
+        margin: 0;
     }
 </style>
 <div class="statusBar">
@@ -109,18 +209,90 @@
     </div>
 </div>
 <div class="documentoSobreMi">
-    <img src="../public/images/biografia1.jpg" class="portimg">
-    <div class="contentPortSobreMi">
-        <h4>Santiago Valderrama </h4>
-        <h5>Sobre mi:</h5>
-        <p>¡Hola mundo! Mi nombre es Santiago Valderrama, y actualmente estoy cursando la carrera de Ingeniería Eléctrica en la Universidad Nacional de Colombia. Soy apasionado por los videojuegos, la música y el anime.</p>
-        <p>Desde mi infancia, la curiosidad me impulsó a desarmar computadoras, realizar formateos, configurar servidores para jugar con amigos, profundizar en el estudio de las matemáticas y comprender conceptos físicos para luego implementarlos en simulaciones.</p> 
-        <p>Todas estas experiencias han sido fundamentales, pues me han permitido adquirir conocimientos valiosos que, más adelante, he aplicado en soluciones prácticas. Estoy emocionado por compartir algunas de estas soluciones en esta página. ¡Espero que encuentres interesantes mis aportes!</p>
+    <div class="flex-container_sm  n1">
+        <div class="flex-items_sm">
+            <img src="../public/images/biografia1.jpg" class="portimg">
+        </div>
+        <div class="flex-items_sm">
+            <h4 class="sobremi_titulo">¿ Quien soy ?</h4>
+            <p>¡Holaaaaaap! Soy Santiago Valderrama, estudio Ingeniería Eléctrica en la Universidad Nacional de
+                Colombia, Me encantan los computadores, el desarrollo de software y resolver problemas de ingenieria en
+                general.</p>
+            <p>Si quieres un enfoque mas laboral aqui te dejo mi hoja de vida:</p>
+            <a href="/apps/Sobre%20Mi/cv.pdf">Mi ✨hoja de vida✨</a>
 
+        </div>
     </div>
 
+    <div class="flex-container_sm2 n1">
+        <div class="flex-items_sm2">
+            <h4 class="sobremi_titulo">Mis Animes Favoritos</h4>
+            <ul>
+                <li>Full Metal Alchemist: Brotherhood</li>
+                <li>El viento se levanta</li>
+                <li>Mob Psycho 100</li>
+                <li>Las 4 peliculas de persona 3.</li>
+                <li>Sousou no Frieren</li>
+
+            </ul>
+        </div>
+        <div class="flex-items_sm2">
+            <img src="apps/Sobre Mi/elrico.gif" class="portimg">
+        </div>
+    </div>
+
+    <div class="flex-container_sm2 n1" style="flex-direction: row-reverse; ">
+        <div class="flex-items_sm2" style="width: 65%;">
+            <h4 class="sobremi_titulo n2">Mis juegos favoritos</h4>
+            <ul style="text-align: right;direction: rtl;">
+                <li>Persona 3 Reload / Persona 5 Royale</li>
+                <li>Undertale / Deltarune</li>
+                <li>Celeste.</li>
+                <li>Ace Attorney</li>
+                <li>Portal 1/2</li>
+            </ul>
+        </div>
+        <div class="flex-items_sm2" style="width: 35%;">
+            <img src="apps/Sobre Mi/liz.jpg" class="portimg">
+        </div>
+    </div>
+    <div class="flex-container_sm2 n1">
+        <div class="flex-items_sm2">
+            <h4 class="sobremi_titulo">OST Favoritos</h4>
+            <ul>
+                <li><a target="_blank"
+                        href="https://www.youtube.com/watch?v=6UUlE-n_AFU">Maya's theme
+                        - Persona 2 (Atsushi Kitajoh Rearrange)</a></li>
+
+                <li><a target="_blank"
+                        href="https://www.youtube.com/watch?v=De0FDShxgrs">The Third
+                        Sanctuary - Deltarune</a></li>
+
+                <li><a target="_blank"
+                        href="https://www.youtube.com/watch?v=Ykw1PhuY-i4">Finale -
+                        Undertale</a></li>
+                <li><a target="_blank"
+                        href="https://www.youtube.com/watch?v=yoVn6Eh6rus">Unavoidable
+                        battle - Persona 3</a></li>
+
+                <li><a target="_blank"
+                        href="https://www.youtube.com/watch?v=3G4cwFIh_Ns">Little root
+                        town - Pokemon esmeralda</a></li>
+
+            </ul>
+        </div>
+        <div class="flex-items_sm2">
+            <img src="apps/Sobre Mi/sus.gif" class="portimg">
+        </div>
+    </div>
+    <div style="text-align: left; margin: 30px;font-size:small;">
+<h4 class="sobremi_titulo">PQR:</h4>
+            <h5>Porque AshValde?</h5>
+            <p>ASH es el nombre que uso en internet y Valde es como me dicen los parceros del barrio.</p>
+            <h5>Porque Ingenieria electrica y no de sistemas?</h5>
+            <p>Miedo a la saturacion del mercado, perder un hobbie y le cogi cariño a la electrica.</p>
+            <h5>Porque una pagina personal asi?</h5>
+            <p>Amo el concepto de la indie-web, es un mini lugarsito donde puedo expresarme y es tremendo portafolio xdddd.</p>
+    </div>
+    
 </div>
-
-
-
-
