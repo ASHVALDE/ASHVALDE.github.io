@@ -5,7 +5,8 @@ async function fetchText(params) {
       throw new Error("Network response was not ok");
     }
 
-    const texto = await response.json();
-    document.getElementById("inputTextaso").innerHTML = texto;
+    let texto = await response.text();
+    texto = texto.replace("\n--- Página ---","")
+    document.getElementById("inputTextaso").textContent  = texto;
 }
 fetchText();
