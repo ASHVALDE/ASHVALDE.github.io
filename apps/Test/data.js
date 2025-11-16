@@ -1,5 +1,5 @@
 async function fetchText(params) {
-    const response = await fetch("https://MCWeb.ashvalde.com/");
+    const response = await fetch("https://biblioteca.ashvalde.com/minecraft/libro.txt");
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
