@@ -6,7 +6,7 @@ async function fetchText(params) {
     }
 
     let texto = await response.text();
-    texto = texto.replace("\n--- Página ---","")
+    texto = texto.replaceAll("\n--- Página ---","")
     document.getElementById("inputTextaso").textContent  = texto;
 }
 fetchText();
