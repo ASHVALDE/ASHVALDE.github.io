@@ -1,5 +1,5 @@
 <style>
-    .documentoCVRectos {
+    .documentoProyectos {
         width: 60vw;
         max-height: 60vh;
         overflow-y: auto;
@@ -9,8 +9,8 @@
     }
 
 
-    .flex-containerCVR2 {
-        height: inherit;
+    .flex-containerProy2 {
+        height: 100%;
         display: inline-flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -19,7 +19,7 @@
         align-content: normal;
     }
 
-    .flex-itemsCVR2:nth-child(1) {
+    .flex-itemsProy2:nth-child(1) {
         display: block;
         flex-grow: 0;
         flex-shrink: 1;
@@ -79,6 +79,7 @@
         text-align: center;
         background: rgb(116, 138, 255);
         background: linear-gradient(180deg, rgba(116, 138, 255, 1) 0%, rgba(64, 87, 211, 1) 100%);
+        
     }
 
     .nonSidebar {}
@@ -107,11 +108,11 @@
         cursor: pointer;
     }
 
-    .flex-containerCVR1 {
+    .flex-containerProy1 {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: space-between;
+
         align-items: center;
         align-content: normal;
         color: #0C327D;
@@ -119,7 +120,7 @@
 
     }
 
-    .flex-itemsCVR1:nth-child(1) {
+    .flex-itemsProy1:nth-child(1) {
         display: block;
         flex-grow: 0;
         flex-shrink: 1;
@@ -128,7 +129,7 @@
         order: 0;
     }
 
-    .flex-itemsCVR1:nth-child(2) {
+    .flex-itemsProy1:nth-child(2) {
         display: block;
         flex-grow: 0;
         flex-shrink: 1;
@@ -136,76 +137,49 @@
         align-self: auto;
         order: 0;
     }
-
-    .listaCVR {
-        text-align: left;
-        padding: 0;
-        padding-left: 10px;
-    }
-
-    .listaCVR li {
-        margin-bottom: 10px;
-    }
-
     @media (max-width: 768px) {
         .sidebarparent {
             visibility: hidden;
             display: none !important;
         }
-
-        .documentoCVRectos {
+        .documentoProyectos{
             width: 80vw !important;
         }
 
     }
-
-    .containervid {
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-bottom: 56.25%;
-    }
-
-    .video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 90%;
-        height: 100%;
-    }
 </style>
 <div class="statusBar">
-    <div class="flex-containerCVR2">
-        <div class="flex-itemsCVR2 statusButton">
+    <div class="flex-containerProy2">
+        <div class="flex-itemsProy2 statusButton">
             Archivo
         </div>
-        <div class="flex-itemsCVR2 statusButton">
+        <div class="flex-itemsProy2 statusButton">
             Editar
         </div>
-        <div class="flex-itemsCVR2 statusButton">
+        <div class="flex-itemsProy2 statusButton">
             Vista
         </div>
-        <div class="flex-itemsCVR2 statusButton">
+        <div class="flex-itemsProy2 statusButton">
             Herramientas
         </div>
-        <div class="flex-itemsCVR2 statusButton">
+        <div class="flex-itemsProy2 statusButton">
             Ayuda
         </div>
 
     </div>
 </div>
-<div class="documentoCVRectos">
-    <div class="contentPort" style="text-align: left;">
-        <div class="flex-containerCVR2" style="width: 100%;">
-            <div class="flex-itemsCVR2 sidebarparent" style="width: 55%">
-                <div class="sidebar ">
+<div class="documentoProyectos" >
+    <div class="contentPort" style="text-align: left;height: 100%;">
+        <div class="flex-containerProy2" style="width: 100%;">
+            <div class="flex-itemsProy2 sidebarparent" style="width: 35%">
+                <div class="sidebar">
                     <div class="sidebarItem">
                         <div class="sidebarTitle">
-                            <div class="flex-containerCVR1">
-                                <div class="flex-itemsCVR1">
+                            <div class="flex-containerProy1">
+                                <div class="flex-itemsProy1">
                                     <p class="titol">System info</p>
                                 </div>
-                                <div class="flex-itemsCVR1">
+                                <div class="flex-itemsProy1">
 
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABTUlEQVR42r1US07DMBDNdVixZMMBcgyOwTV6CBbZoYLUqojSuKUIFj1AVSmlrUBKk9KGEOfnGE9So4Cd2giJkUaxo8zze28mNoz/iA5anP0ZpLcHQQ/OF9h6E1quF5b7x8nqWI+N7ZzzdYRTKgtCCloeOpgiLVAoUMV2h+mNPbMOAmU5EQqN0wspIJNeKmnfzkWW4IsMiGc9CkaeFJVkIfqjmZWkuRTo55qDgQpe3x275jfAJiDZO2CVZIS6fmhK2TWZLfMsZ02KmRI+MtrmN0n8iDPa2ElvEyIdz0AisAqilCpmrDr5kGfg1TsD8t6i1vDJET3rDJ5bdbk8gQVP2OOkYuTtMNL+R6MkKz2BJ18DGz/AwXqLhcnvjn1TCeoH8RQSmIAs2TeX/eWJNsshuykg72o3ya9YXdkLS3UIMBImXxXX9suR0LD7V4HlJ2GeRKYqB6UhAAAAAElFTkSuQmCC"
                                         alt="">
@@ -214,17 +188,16 @@
 
 
                         </div>
-                        <p style="margin: 10px;">Este es un resumen de mi paso por Colombian Virtual Reality, este fue
-                            uno de los proyectos que mas le tengo cariño y me enseño muchisimas cosas.</p>
+                        <p style="margin: 10px;">Aqui van los trabajos que realice, me enorgullecen y quiero mostrar.</p>
                     </div>
 
                     <div class="sidebarItem">
                         <div class="sidebarTitle">
-                            <div class="flex-containerCVR1">
-                                <div class="flex-itemsCVR1">
-                                    <p class="titol">Detalles</p>
+                            <div class="flex-containerProy1">
+                                <div class="flex-itemsProy1">
+                                    <p class="titol">Details</p>
                                 </div>
-                                <div class="flex-itemsCVR1">
+                                <div class="flex-itemsProy1">
 
                                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAABTUlEQVR42r1US07DMBDNdVixZMMBcgyOwTV6CBbZoYLUqojSuKUIFj1AVSmlrUBKk9KGEOfnGE9So4Cd2giJkUaxo8zze28mNoz/iA5anP0ZpLcHQQ/OF9h6E1quF5b7x8nqWI+N7ZzzdYRTKgtCCloeOpgiLVAoUMV2h+mNPbMOAmU5EQqN0wspIJNeKmnfzkWW4IsMiGc9CkaeFJVkIfqjmZWkuRTo55qDgQpe3x275jfAJiDZO2CVZIS6fmhK2TWZLfMsZ02KmRI+MtrmN0n8iDPa2ElvEyIdz0AisAqilCpmrDr5kGfg1TsD8t6i1vDJET3rDJ5bdbk8gQVP2OOkYuTtMNL+R6MkKz2BJ18DGz/AwXqLhcnvjn1TCeoH8RQSmIAs2TeX/eWJNsshuykg72o3ya9YXdkLS3UIMBImXxXX9suR0LD7V4HlJ2GeRKYqB6UhAAAAAElFTkSuQmCC"
                                         alt="">
@@ -234,81 +207,89 @@
 
                         </div>
                         <p style="margin: 10px;">
-                            Colombian Virtual Reality (CVR) fue una fundación sin fines de lucro que busca mejorar la
-                            vida de las personas más necesitadas en Colombia. A través de donaciones, proyectos y
-                            actividades de voluntariado, CVR trabajaba para crear un impacto positivo en las comunidades
-                            más vulnerables del país.
-                            <a href="https://www.instagram.com/mta.cvr/?hl=es" target="_blank">🌐 - Instagram CVR</a>
+                            Estos fueron lugares donde aprendi muchisimo de ingenieria de sistemas y les tengo especial cariño. (En especial CVR)
                         </p>
                     </div>
 
 
                 </div>
             </div>
-            <div class="flex-itemsCVR2 FlexObrigadoCVR">
+            <div class="flex-itemsProy2 flex-itemsProy21">
                 <div class="nonSidebar">
                     <div class="iPYpwe">
                         <p style="font-weight: 700;font-size: larger; margin: 10px 10px ; text-align: left;">
-                            ¿ Que es Colombian Virtual Reality ?
-                        </p>
-
+                            Dispositivos y unidades:</p>
                     </div>
-                    <div style="margin-left: 15px; text-align: center;">
-                        <p>
-                            Colombian Virtual Reality fue un servidor colombiano de GTA: San Andreas que simulaba la vida
-                            cotidiana en Colombia. Participe 2 años como líder de desarrollo,estuve presente en la creación de un sistema de
-                            roleplay único que permitió a los jugadores interactuar entre sí de forma realista y
-                            divertida. </p>
-                        <p>
-                            En su momento un jugador (<a href="https://www.youtube.com/@ElPalomero">Palomo</a>),un productor audiovisual que
-                            jugaba en el servidor hizo un video publicitando el servidor y se puede ver un poco de como era:
-                        </p>
-                        <div class="containervid">
-                            <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/YE8cNBobo9Y?si=zaiaN9bZzPx3FRE-"
-                                title="YouTube video player" frameborder="0" class="video"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+                    <div class="flex-containerProy1" style="width: 100%;text-align: left; margin: 20px 15px;">
+                        <div class="flex-itemsProy2">
+                            <div class='icon'><img src='./public/images/hard_disk_drive-2.png'>
+                                <div class='Iconnametag'>
+                                    <p>Disco local C:</p>
+                                </div>
+                            </div>
                         </div>
+                        <div class="flex-itemsProy2" >
+                            <div class='icon' ><img src='./public/images/floppy_drive_5_25-0.png'>
+                                <div class='Iconnametag'>
+                                    <p>Disco Extraible F:</p>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
-
                 </div>
                 <div class="nonSidebar">
                     <div class="iPYpwe">
                         <p style="font-weight: 700;font-size: larger; margin: 10px 10px ; text-align: left;">
-                            Como fundaciòn
-                        </p>
-
+                            Trabajos grandes:</p>
                     </div>
-                    <div style="margin-left: 15px; text-align: center;">
-                        <p>
-                            Colombian Virtual Reality (CVR) se oficializó como fundación a principios de 2024, pero sus
-                            actividades con la comunidad comenzaron en 2020. A continuación, se presenta un resumen de
-                            las donaciones realizadas a finales de 2023: </p>
-                        <div class="containervid">
-                            <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/Q5O0fkOva-w?si=4vU54bqJez6D4wED"
-                                title="YouTube video player" frameborder="0" class="video"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                    <div class="flex-containerProy2" style="width: 100%;text-align: left; margin: 20px 15px;">
+                        <div class="flex-itemsProy2">
+                            <div class='icon' onclick='startIcon(this)'><img src='./public/images/cd_drive-0.png'>
+                                <div class='Iconnametag'>
+                                    <p>Nova Transmedia</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-itemsProy2">
+                            <div class='icon' onclick='startIcon(this)'><img src='./public/images/cd_drive-0.png'>
+                                <div class='Iconnametag'>
+                                    <p>Fundacion CVR</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="nonSidebar">
+                    <div class="iPYpwe">
+                        <p style="font-weight: 700;font-size: larger; margin: 10px 10px ; text-align: left;">
+                            Mas proyectos:</p>
+                    </div>
+
+                    <div class="flex-containerProy2" style="width: 100%;text-align: left; margin: 20px 15px;">
+                        <div class="flex-itemsProy2">
+                            <div class='icon' onclick='startIconWithURL(this,"https://github.com/ASHVALDE")'><img src='./public/images/odbc-4.png'>
+                                <div class='Iconnametag'>
+                                    <p>Git-Hub</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-itemsProy2">
+                            <div class='icon' onclick='startIconWithURL(this,"https://www.youtube.com/channel/UC6_iD2E_ZbSFT9k5rTXiYEQ")'><img src='./public/images/movie_maker-5.png'>
+                                <div class='Iconnametag'>
+                                    <p>Youtube</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-itemsProy2">
 
                         </div>
                     </div>
-                    <div class="iPYpwe">
-                        <p style="font-weight: 700;font-size: larger; margin: 10px 10px ; text-align: left;">
-                            Log de donaciones publicadas:
-                        </p>
-                    </div>
-                                        <iframe src="apps/Fundacion%20CVR/logs.html" height="500px" width="100%"></iframe>
-
-
+                </div>
             </div>
-
+            
         </div>
-
-
     </div>
-
-</div>
-</div>
