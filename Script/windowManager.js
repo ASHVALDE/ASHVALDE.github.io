@@ -149,6 +149,8 @@ async function createWindow2(title, link, x, y) {
 }
 
 function closeThisWindow(e){
+    const audio = new Audio('public/Balloon.mp3');
+  audio.play();
   const title = e.replace(/_/g, " ")
   paginasAbiertas[title].remove()
   document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
@@ -157,6 +159,8 @@ function closeThisWindow(e){
 }
 
 function closeThisWindow2(title){
+    const audio = new Audio('public/Balloon.mp3');
+  audio.play();
   document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
   delete paginasAbiertas[title]
 }

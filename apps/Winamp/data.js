@@ -1,11 +1,5 @@
 const webamp = new Webamp({
-    initialTracks: [{
-      metaData: {
-        artist: "Guns n Roses",
-        title: "Dont Cry"
-      },
-      url: "public/music/1.mp3"
-    },
+    initialTracks: [
     {
       metaData: {
         artist: "KDrew",
@@ -13,6 +7,14 @@ const webamp = new Webamp({
       },
       url: "public/music/2.mp3"
     },
+    {
+      metaData: {
+        artist: "Guns n Roses",
+        title: "Dont Cry"
+      },
+      url: "public/music/1.mp3"
+    },
+    
     {
       metaData: {
         artist: "Evanescence",
