@@ -1,8 +1,22 @@
 
 var moving = null;
 var offset = [0, 0]
+
+const overlay = document.createElement("div");
+overlay.style.position = "fixed";
+overlay.style.top = 0;
+overlay.style.left = 0;
+overlay.style.width = "100vw";
+overlay.style.height = "100vh";
+overlay.style.zIndex = 999999;
+overlay.style.background = "transparent";
+overlay.id="ovr"
+
 function initialClick(e) {
+  
+
   if (e.target.classList.contains("title-bar")) {
+    document.body.appendChild(overlay);
     offset[0] = e.offsetX
     offset[1] = e.offsetY
     moving = e.target;
@@ -34,13 +48,26 @@ function initialClick(e) {
 function move(e) {
   var newX = e.clientX - 10;
   var newY = e.clientY - 10;
-  moving.parentElement.style.left = newX - offset[0] + "px";
-  moving.parentElement.style.top = newY - offset[1] + "px";
-}
 
+  const style = getComputedStyle(moving.parentElement);
+
+  const old_left = parseFloat(moving.parentElement.style.left);
+  const old_top  = parseFloat(moving.parentElement.style.top);
+  console.log(old_left)
+
+  if (
+    Math.abs(old_left - (newX - offset[0])) > 50 ||
+    Math.abs(old_top - (newY - offset[1])) > 50
+  ) {
+    soltarClick(e);
+  }
+
+  moving.parentElement.style.left = (newX - offset[0]) + "px";
+  moving.parentElement.style.top  = (newY - offset[1]) + "px";
+}
 function soltarClick(e) {
   document.removeEventListener("pointermove", move, false);
-
+  document.getElementById("ovr").remove()
   document.onpointerup = null
   moving = false
 
@@ -126,6 +153,11 @@ function closeThisWindow(e){
   paginasAbiertas[title].remove()
   document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
   document.getElementById(title+"_Taskbar").remove()
+  delete paginasAbiertas[title]
+}
+
+function closeThisWindow2(title){
+  document.getElementById("Menu").classList.remove("Menu-Inicio-Activo")
   delete paginasAbiertas[title]
 }
 
