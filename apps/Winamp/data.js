@@ -53,7 +53,10 @@ const webamp = new Webamp({
 ],
   });
 
-  webamp.renderWhenReady(document.getElementById("winamp"));
+  webamp.renderWhenReady(document.getElementById("winamp")).then(() => {
+  const el = document.getElementById("webamp");
+  el.style.zIndex = 999999;
+});
   webamp.onClose(() => {
     closeThisWindow2( "Winamp");
 
