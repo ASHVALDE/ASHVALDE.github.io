@@ -1,2 +1,3 @@
 
-location.href = 'https://biblioteca.ashvalde.com/';
+url = 'https://biblioteca.ashvalde.com/';
+window.open(url, '_blank')

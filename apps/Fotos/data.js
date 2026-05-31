@@ -1,2 +1,3 @@
 
-location.href = 'https://fotos.ashvalde.com/share/f2Sywol5?orderDirection=DESC';
+url = 'https://fotos.ashvalde.com/share/XklzBfkQ?orderDirection=DESC';
+window.open(url, '_blank')
