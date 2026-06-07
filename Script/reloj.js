@@ -1,6 +1,6 @@
 function startTime() {
     const today = new Date();
-    document.getElementById('tiempo').innerHTML =  formatAMPM(today);
+    document.getElementById('time').innerHTML =  formatAMPM(today);
     setTimeout(startTime, 1000);
     
   }
