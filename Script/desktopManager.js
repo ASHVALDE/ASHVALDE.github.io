@@ -36,10 +36,7 @@ function createIcons(){
         elem.innerHTML = "<div class='icon' onclick='startIcon(this)'><img src='apps/"+program+"/icon.png'><div class='Iconnametag'><p>"+program+"</p></div></div>"
         document.getElementById("escritorio") .append(elem.firstChild)
     })
-        
-    
-
-    
+           
 }
 
 

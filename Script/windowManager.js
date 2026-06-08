@@ -145,6 +145,31 @@ async function createWindow2(title, link, x, y) {
     createTaskBarButton(title)
     bringAppFront(title)
   }
+}
+async function createError(title, link, x, y) {
+  if(paginasAbiertas[title]=="Loading"){
+    return;
+  }
+  const audio = new Audio('public/Balloon.mp3');
+  audio.play();
+  if(paginasAbiertas[title]){
+    bringAppFront(title)
+  }else{
+    
+    paginasAbiertas[title] = "Loading"
+    const txt = "<div style='display: flex;align-items: center;width:400px;height:100px;'><img height='50px' style='margin:5px 20px' src='./public/images/error.png' alt=''><p style='font-size:15px;text-align:left;margin-right:5px;'>"+link+"</p></div><button style='margin-bottom:5px;width:30%;' onpointerdown=closeThisWindow('"+ title.replace(/ /g, '_') +"')>Cerrar</button>"
+  
+ 
+    let elem = document.createElement("window")
+    elem.innerHTML = "<div class='window' style='position:absolute;width:min-content;text-align: center;top:" + y + "px;left:" + x + "px;' ><div id='title-bar1' class='title-bar' style='user-select: none;'><div class='title-bar-text'>" + title + "</div><div class='title-bar-controls'><button onpointerdown=hideThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Minimize'></button><button class='closewindowsbutton' onpointerdown=closeThisWindow('"+ title.replace(/ /g, '_') +"') aria-label='Close'></button></div></div><div class='window-body'><div>" + txt + "</div> </div></div></div>"
+    paginasAbiertas[title] = elem.firstChild
+    elem.firstChild.onpointerdown = (e)=>{bringAppFront(title,e)}
+    let elemento = document.body.append(elem.firstChild)
+    elem.style.zIndex = -3
+    createTaskBarButton(title)
+    bringAppFront(title)
+
+  }
 
 }
 

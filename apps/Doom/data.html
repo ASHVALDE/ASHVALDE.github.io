@@ -1,40 +1,46 @@
 <style>
     .DocumentoBuscaminas {
-        width: 100%;
-
-        margin: 0;
-        
-        
-    }
-
-    #myIframe {
         position: relative;
+        width: 680px;
+        height: 400px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    #Doom {
+        width: 100%;
         height: 100%;
-        width: 100%;
+        border: none;
     }
-    .window:has(.DocumentoBuscaminas){
-        
-        top:20%;
+
+    .window:has(.DocumentoBuscaminas) {
+        top: 20%;
         left: 20%;
-
-        width: 100%;
     }
-   
 
+    /* Móviles */
+    @media (max-width: 768px) {
+        .DocumentoBuscaminas {
+            width: 80vw;
+            height: 30vh;
+            max-width: 100vw;
+        }
+
+        .window:has(.DocumentoBuscaminas) {
+            top: 0;
+            left: 0;
+            width: 80vw;
+            height: 30vh;
+        }
+    }
 </style>
 
-
-
-
 <div class="DocumentoBuscaminas">
- 
     <iframe
-    id="Mario64"
-    width="680"
-    height="400"
-    frameborder="0"
-    src="https://midzer.de/wasm/doom/"
-    allowfullscreen>
-</iframe>
-    
+        id="Doom"
+        frameborder="0"
+        allowfullscreen
+        allow="fullscreen; autoplay"
+        src="applet/Doom/data.html">
+    </iframe>
 </div>
