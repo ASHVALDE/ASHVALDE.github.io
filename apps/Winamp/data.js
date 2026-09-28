@@ -10,13 +10,6 @@ const webamp = new Webamp({
     },
     {
       metaData: {
-        artist: "KDrew",
-        title: "BullsEye"
-      },
-      url: "public/music/2.mp3"
-    },
-    {
-      metaData: {
         artist: "Evanescence",
         title: "Bring me 2 life"
       },
@@ -31,13 +24,6 @@ const webamp = new Webamp({
     },
     {
       metaData: {
-        artist: "untitled",
-        title: "bonjovi - its_my_life_official_video"
-      },
-      url: "public/music/5.mp3"
-    },
-    {
-      metaData: {
         artist: "Linkin Park",
         title: "GivenUp"
       },
@@ -49,6 +35,13 @@ const webamp = new Webamp({
         title: "Boulevard of Broken Dreams (Official Audio)"
       },
       url: "public/music/7.mp3"
+    },
+    {
+      metaData: {
+        artist: "KDrew",
+        title: "BullsEye"
+      },
+      url: "public/music/2.mp3"
     },
 ],
   });
